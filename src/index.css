@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "Be Vietnam Pro", "DM Sans", monospace;
+  --font-sans: "DM Sans", "Be Vietnam Pro", sans-serif;
+  --font-serif: "Bodoni Moda", "Playfair Display", serif;
+}
+
+@layer base {
+  :root {
+    --cuchi-darkgreen: #243d2b;
+    --cuchi-green: #617a50;
+    --cuchi-beige: #f2e8d5;
+    --cuchi-lightbeige: #faf6ed;
+    --cuchi-terracotta: #c76b45;
+    --cuchi-darkbrown: #352c24;
+  }
+
+  body {
+    font-family:
+      "DM Sans",
+      "Be Vietnam Pro",
+      "DejaVu Sans",
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+    background-color: var(--cuchi-beige);
+    color: var(--cuchi-darkbrown);
+    margin: 0;
+    padding: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-heading {
+    font-family: "Grand Hotel", "Be Vietnam Pro", sans-serif;
+    letter-spacing: 0.04em;
+  }
+
+  .font-editorial {
+    font-family: "Lobster", "Playfair Display", "Be Vietnam Pro", serif;
+  }
+
+  .font-body {
+    font-family: "DM Sans", "Be Vietnam Pro", "DejaVu Sans", sans-serif;
+  }
+
+  .font-mono,
+  pre,
+  code {
+    font-family: "DM Sans", "Be Vietnam Pro", monospace !important;
+  }
+
+  p {
+    font-family:  "Be Vietnam Pro";
+  }
+
+  /* Áp dụng font riêng cho tất cả các nút bấm (bao gồm cả thẻ button và các thành phần có class tương tự) */
+  button,
+  .btn {
+    font-family: 'Montserrat', 'Be Vietnam Pro', sans-serif;
+  }
+}
+
+/* Custom retro stamp & badge styles */
+.retro-border {
+  border: 1px solid rgba(53, 44, 36, 0.2);
+}
+
+.retro-border-dashed {
+  border: 1px dashed rgba(97, 122, 80, 0.4);
+}
+
+.paper-shadow {
+  box-shadow: 2px 3px 0px rgba(36, 61, 43, 0.15);
+}
+
+.paper-shadow-lg {
+  box-shadow: 4px 6px 0px rgba(36, 61, 43, 0.2);
+}
+
+/* Custom Leaflet styling */
+.leaflet-popup-content-wrapper {
+  background-color: #faf6ed !important;
+  color: #352c24 !important;
+  border: 2px solid #243d2b !important;
+  border-radius: 4px !important;
+  box-shadow: 4px 4px 0px rgba(36, 61, 43, 0.3) !important;
+  padding: 0 !important;
+  font-family: "DM Sans", "Be Vietnam Pro", sans-serif !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.leaflet-popup-tip {
+  background-color: #faf6ed !important;
+  border: 2px solid #243d2b !important;
+}
+
+/* Archival stamp effect */
+.archival-stamp {
+  border: 2px solid #c76b45;
+  color: #c76b45;
+  font-family: "Bebas Neue", "Oswald", "Be Vietnam Pro", sans-serif;
+  letter-spacing: 0.08em;
+  transform: rotate(-3deg);
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+/* Member card background zoom */
+.member-bg-img {
+  transform: scale(1.0);
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) !important;
+  will-change: transform;
+}
+
+.member-card:hover .member-bg-img {
+  transform: scale(1.06);
+}
+
+.member-bg-img-center-subject {
+  transform: scale(1.24) translateX(28px);
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) !important;
+  will-change: transform;
+}
+
+.member-card:hover .member-bg-img-center-subject {
+  transform: scale(1.31) translateX(28px);
+}
+
+.member-bg-img-nhi {
+  transform: scale(1.15) translateX(10px);
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) !important;
+  will-change: transform;
+}
+
+.member-card:hover .member-bg-img-nhi {
+  transform: scale(1.22) translateX(10px);
+}
+
+.member-bg-img-anh {
+  transform: scale(1.5) translateX(-18px);
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) !important;
+  will-change: transform;
+}
+
+.member-card:hover .member-bg-img-anh {
+  transform: scale(1.58) translateX(-18px);
+}
+
+.member-bg-img-nhu {
+  transform: scale(1.62) translateX(-4px);
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) !important;
+  will-change: transform;
+}
+
+.member-card:hover .member-bg-img-nhu {
+  transform: scale(1.70) translateX(-4px);
+}
+
+.member-bg-img-lam {
+  transform: scale(1.0);
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) !important;
+  will-change: transform;
+}
+
+.member-card:hover .member-bg-img-lam {
+  transform: scale(1.06);
+}
+
+.member-bg-img-linh {
+  transform: scale(1.32);
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) !important;
+  will-change: transform;
+}
+
+.member-card:hover .member-bg-img-linh {
+  transform: scale(1.40);
+}
+
+

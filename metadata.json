@@ -1,0 +1,6 @@
+{
+  "name": "Củ Chi – Vùng Đất Anh Hùng, Sắc Màu Văn Hóa",
+  "description": "Dự án khám phá lịch sử, văn hóa, con người, ẩm thực và bản đồ tương tác Củ Chi, Thành phố Hồ Chí Minh thực hiện bởi học sinh Lớp 12A5.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

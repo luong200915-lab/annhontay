@@ -1,0 +1,665 @@
+# PROMPT XÂY DỰNG WEBSITE GIỚI THIỆU XÃ CỦ CHI – LỚP 12A5
+
+## 1. VAI TRÒ VÀ MỤC TIÊU DỰ ÁN
+
+Bạn là một đội ngũ chuyên gia gồm UI/UX Designer, Frontend Developer, Backend Developer, chuyên gia bản đồ số, chuyên gia tích hợp AI và biên tập viên nội dung văn hóa – lịch sử địa phương.
+
+Hãy thiết kế và phát triển một website hoàn chỉnh với chủ đề **“CỦ CHI – VÙNG ĐẤT ANH HÙNG, SẮC MÀU VĂN HÓA”**, nhằm giới thiệu vẻ đẹp lịch sử, văn hóa, con người, thiên nhiên, ẩm thực và các địa điểm tiêu biểu của xã Củ Chi, Thành phố Hồ Chí Minh.
+
+Website là sản phẩm học tập và thuyết trình của học sinh lớp 12A5. Đối tượng sử dụng chính gồm giáo viên và học sinh, những người sẽ trực tiếp truy cập, trải nghiệm, đánh giá và chấm điểm sản phẩm.
+
+Mục tiêu cần đạt:
+- Có thiết kế riêng biệt, mang đậm phong cách Retro Vintage kết hợp Editorial Design.
+- Sử dụng hình ảnh thật, thông tin có nguồn dẫn và được kiểm chứng.
+- Tổ chức nội dung thành các chuyên mục khoa học, dễ khám phá.
+- Có bản đồ văn hóa tương tác dựa trên bản đồ Thành phố Hồ Chí Minh.
+- Có trợ lý AI chỉ trả lời những câu hỏi liên quan đến Củ Chi.
+- Có hệ thống quản lý nội dung cho phép thêm, sửa, xóa bài viết và quản lý hình ảnh, video mà không cần viết lại website.
+- Tối ưu trải nghiệm trên máy tính, máy tính bảng và điện thoại.
+- Tạo ấn tượng khi trình chiếu trước lớp và khi giáo viên chấm điểm.
+
+Không chỉ tạo bản thiết kế giao diện tĩnh. Hãy phát triển sản phẩm có khả năng vận hành thực tế, có điều hướng, dữ liệu, chức năng tương tác và hướng dẫn triển khai rõ ràng.
+
+---
+
+## 2. NGÔN NGỮ THIẾT KẾ VÀ HỆ THỐNG MÀU SẮC
+
+### 2.1. Phong cách thiết kế
+
+Kết hợp Retro Vintage với Editorial Design theo tinh thần tạp chí du lịch, tư liệu lịch sử và ấn phẩm văn hóa nghệ thuật.
+
+Cảm giác tổng thể cần truyền tải:
+- Hoài cổ, gần gũi và giàu bản sắc địa phương.
+- Có chiều sâu văn hóa, lịch sử và tính khám phá.
+- Hiện đại trong cách sử dụng, điều hướng và tương tác.
+- Có chất riêng, mang lại cảm giác đây là một dự án được thiết kế chuyên biệt về Củ Chi.
+
+Tuyệt đối không sử dụng một template du lịch phổ thông rồi chỉ thay đổi màu sắc và hình ảnh.
+
+### 2.2. Bảng màu bắt buộc
+
+Sử dụng đúng các mã màu sau:
+
+- Xanh lá đậm `#243D2B`: màu chủ đạo, dùng cho header, footer, hero, các khu vực nhấn mạnh và nền tương phản.
+- Xanh lá `#617A50`: màu phụ cho nút bấm, icon, đường viền, nhãn chuyên mục và các yếu tố tương tác.
+- Be `#F2E8D5`: màu nền chính của phần nội dung.
+- Be sáng `#FAF6ED`: màu nền phụ của thẻ thông tin, khu vực văn bản và khoảng nghỉ thị giác.
+- Cam đất `#C76B45`: màu nhấn tiết chế cho số thứ tự, nhãn nổi bật, đường gạch, nút phụ và các chi tiết thị giác.
+- Nâu đậm `#352C24`: màu chữ chính trên nền sáng.
+
+Đảm bảo độ tương phản để chữ dễ đọc, đặc biệt với nội dung lịch sử và các đoạn thông tin dài. Không đặt chữ nhỏ màu be trên nền sáng hoặc chữ xanh lá nhạt trên nền có độ tương phản thấp.
+
+### 2.3. Typography
+
+Sử dụng hệ thống font:
+
+- **Bebas Neue:** tiêu đề lớn, tiêu đề hero, tên chuyên mục và các chữ in hoa có tác động thị giác mạnh.
+- **DM Sans:** nội dung chính, đoạn giới thiệu, chú thích ảnh, biểu mẫu, menu, nút và thông tin trên bản đồ.
+- **Bodoni Moda:** tiêu đề trang trí, câu trích dẫn, tên địa danh hoặc các cụm chữ mang tinh thần tạp chí cổ điển.
+
+Có thể kết hợp chữ in hoa, cỡ chữ tương phản lớn, khoảng cách chữ linh hoạt và cách ngắt dòng có chủ đích.
+
+Tải font từ Google Fonts hoặc nguồn phân phối chính thống; cung cấp font dự phòng để website vẫn hiển thị tốt khi không tải được font bên ngoài.
+
+### 2.4. Bố cục
+
+- Chia trang thành các khối nội dung lớn.
+- Sử dụng lưới bất đối xứng có chủ đích.
+- Xen kẽ ảnh lớn, tiêu đề cỡ lớn, đoạn văn ngắn và các thẻ thông tin.
+- Sử dụng đường kẻ mảnh, số thứ tự, nhãn lưu trữ, chú thích ảnh và các chi tiết giống trang tạp chí.
+- Có khoảng trắng hợp lý để giao diện không rối.
+- Hình ảnh quan trọng được ưu tiên về kích thước và vị trí.
+- Không dùng quá nhiều thẻ bo góc, gradient, hiệu ứng kính hoặc kiểu giao diện SaaS thông thường.
+- Các yếu tố Retro chỉ phục vụ thẩm mỹ, không làm giảm khả năng đọc và thao tác.
+
+### 2.5. Chuyển động
+
+Thiết kế các hiệu ứng tinh tế:
+- Hover làm thay đổi màu sắc hoặc độ nổi của nút và liên kết.
+- Ảnh phóng to nhẹ khi hover.
+- Các khối nội dung xuất hiện mềm mại khi cuộn trang.
+- Chuyển cảnh giữa các trang mượt mà.
+- Chuyển động nhỏ ở tiêu đề hoặc chi tiết trang trí khi mở trang.
+
+Hạn chế hiệu ứng gây phân tâm; hỗ trợ `prefers-reduced-motion` để giảm chuyển động theo thiết lập của người dùng.
+
+---
+
+## 3. TRANG LOADING CÓ BẢN SẮC RIÊNG
+
+Trước khi vào website, hiển thị màn hình loading toàn trang mang phong cách poster du lịch và tư liệu lịch sử Củ Chi.
+
+Yêu cầu:
+- Sử dụng một bức ảnh thật, chất lượng cao về Củ Chi, chẳng hạn ảnh địa đạo, cảnh quan địa phương hoặc một địa điểm văn hóa tiêu biểu.
+- Ảnh nền được xử lý màu nhẹ theo tông xanh rêu, be và nâu cổ điển.
+- Hiển thị tên dự án: “CỦ CHI — VÙNG ĐẤT ANH HÙNG”.
+- Có thanh tiến độ loading trực quan, phần trăm tải và hiệu ứng chuyển động nhẹ.
+- Hiển thị rõ thông tin “THỰC HIỆN BỞI LỚP 12A5”.
+- Hiển thị đầy đủ năm thành viên:
+
+  1. Trần Đức Lương
+  2. Trần Hà Phụng Nhi
+  3. Phan Khánh Linh
+  4. Nguyễn Tường Lam
+  5. Nguyễn Thị Quỳnh Như
+
+- Bố cục tên thành viên trang trọng, dễ đọc, không lấn át hình ảnh chính.
+- Có thể bổ sung dòng chữ nhỏ: “Dự án khám phá lịch sử, văn hóa và con người Củ Chi”.
+
+Thanh tiến độ phải phản ánh trạng thái tải hoặc khởi tạo tài nguyên thực tế; không giả lập quá trình tải dài hoặc khiến người xem phải chờ không cần thiết. Khi dữ liệu đã sẵn sàng, tự động chuyển vào trang chủ. Nếu dữ liệu tải thất bại, cung cấp trạng thái lỗi và nút thử lại.
+
+Đối với người truy cập lại, có thể rút ngắn loading hoặc bỏ qua phần hiệu ứng nặng. Không để loading che nội dung vĩnh viễn.
+
+---
+
+## 4. CẤU TRÚC VÀ ĐIỀU HƯỚNG WEBSITE
+
+Tổ chức website thành các trang hoặc khu vực điều hướng rõ ràng:
+
+1. Trang chủ.
+2. Khám phá Củ Chi.
+3. Bản đồ văn hóa tương tác.
+4. Lịch sử và truyền thống.
+5. Văn hóa và đời sống.
+6. Thiên nhiên và cảnh quan.
+7. Ẩm thực và đặc sản.
+8. Địa điểm tham quan.
+9. Thư viện hình ảnh và video.
+10. Trợ lý AI về Củ Chi.
+11. Nguồn tham khảo và phương pháp kiểm chứng.
+12. Giới thiệu nhóm thực hiện.
+13. Trang quản trị nội dung riêng tư.
+
+Có thể gộp các mục nội dung liên quan thành những chuyên mục chính để menu không quá dài. Các phần trên phải được kết nối với nhau bằng liên kết thực tế.
+
+Header có logo chữ cách điệu, menu, chức năng tìm kiếm và nút mở bản đồ. Trên điện thoại, menu chuyển thành giao diện điều hướng thu gọn dễ sử dụng.
+
+Footer sử dụng nền xanh lá đậm, có tên dự án, nhóm thực hiện lớp 12A5, liên kết nhanh, nguồn tư liệu và thông tin bản quyền phù hợp.
+
+---
+
+## 5. TRANG CHỦ — TRẢI NGHIỆM EDITORIAL
+
+Trang chủ phải tạo ấn tượng mạnh ngay trong màn hình đầu tiên.
+
+### 5.1. Hero section
+
+Thiết kế hero toàn chiều rộng với ảnh thật về Củ Chi. Bố cục đề xuất:
+- Một tiêu đề lớn “CỦ CHI” sử dụng Bebas Neue.
+- Dòng phụ: “DẤU ẤN LỊCH SỬ · SẮC MÀU VĂN HÓA”.
+- Đoạn giới thiệu ngắn, giàu hình ảnh nhưng không cường điệu hoặc sai lệch thực tế.
+- Nút “KHÁM PHÁ CỦ CHI” và “MỞ BẢN ĐỒ VĂN HÓA”.
+- Có thể sử dụng bố cục chữ chồng một phần lên ảnh, số thứ tự lớn hoặc nhãn phong cách tư liệu.
+
+Hero cần có điểm nhấn rõ ràng, nhưng chữ vẫn dễ đọc trên ảnh.
+
+### 5.2. Phần giới thiệu tổng quan
+
+Giới thiệu ngắn về vị trí địa lý, con người, lịch sử và bản sắc của Củ Chi.
+
+Thông tin về đơn vị hành chính, địa giới, diện tích và dân số phải dựa trên nguồn phù hợp với thời điểm cập nhật. Không tự động sử dụng dữ liệu cũ mà không ghi rõ mốc thời gian.
+
+### 5.3. Chuyên mục khám phá nổi bật
+
+Tổ chức thành các khối editorial bất đối xứng gồm:
+- Lịch sử và dấu ấn cách mạng.
+- Văn hóa và đời sống địa phương.
+- Thiên nhiên và cảnh quan.
+- Ẩm thực và đặc sản.
+- Những địa điểm nên tìm hiểu.
+
+Mỗi khối có ảnh, tiêu đề, mô tả ngắn và nút “ĐỌC THÊM”.
+
+### 5.4. Điểm nhấn thị giác
+
+Tích hợp một câu trích dẫn có nguồn rõ ràng, một dải ảnh tư liệu, các con số nổi bật được kiểm chứng và lời mời khám phá bản đồ.
+
+Không bịa số liệu để lấp đầy giao diện. Khi chưa có dữ liệu tin cậy, ưu tiên câu chuyện, ảnh và thông tin định tính thay vì số liệu tự tạo.
+
+### 5.5. Nội dung mới và nội dung nổi bật
+
+Hiển thị bài viết mới được xuất bản, địa điểm nổi bật, các nội dung được nhóm biên tập đánh dấu và liên kết trực tiếp đến bản đồ.
+
+---
+
+## 6. BẢN ĐỒ VĂN HÓA TƯƠNG TÁC
+
+Đây là một trong những tính năng quan trọng nhất của website và phải được triển khai thực sự, không chỉ là ảnh bản đồ tĩnh.
+
+### 6.1. Công nghệ bản đồ
+
+Sử dụng Leaflet kết hợp OpenStreetMap hoặc một giải pháp bản đồ phù hợp có quyền sử dụng rõ ràng.
+
+Bản đồ phải dựa trên nền bản đồ thực tế của Thành phố Hồ Chí Minh, có thể phóng to, thu nhỏ, kéo bản đồ và xem các địa điểm tại khu vực Củ Chi.
+
+Không sử dụng ảnh chụp màn hình Google Maps làm bản đồ tương tác. Tuân thủ điều khoản dữ liệu bản đồ, giấy phép, bản quyền và yêu cầu ghi công của nhà cung cấp bản đồ.
+
+### 6.2. Chức năng
+
+- Hiển thị bản đồ tương tác.
+- Đánh dấu những địa điểm có thông tin đáng tin cậy.
+- Mỗi điểm có tên, ảnh thật, mô tả, phân loại và nguồn tham khảo.
+- Bấm vào marker để mở popup hoặc bảng thông tin chi tiết.
+- Có thể mở trang chi tiết của địa điểm.
+- Có chức năng tìm kiếm địa danh.
+- Có bộ lọc theo danh mục: lịch sử, văn hóa, thiên nhiên, ẩm thực và tham quan.
+- Có thể bật hoặc tắt từng loại điểm đánh dấu.
+- Có nút trở về khu vực Củ Chi.
+- Có danh sách địa điểm đồng bộ với bản đồ.
+- Khi chọn một địa điểm trong danh sách, bản đồ tự di chuyển đến vị trí tương ứng.
+- Có chú giải màu hoặc biểu tượng, giúp người xem phân biệt các nhóm địa điểm.
+- Hiển thị tốt trên màn hình cảm ứng.
+
+Tọa độ phải có căn cứ; không đặt marker tùy ý hoặc gắn sai vị trí. Nếu chưa xác minh được vị trí, không đưa địa điểm đó lên bản đồ công khai.
+
+### 6.3. Giao diện bản đồ
+
+Dùng nền sáng nhẹ, đường viền xanh lá, marker có thiết kế nhất quán với phong cách Retro Vintage. Tuy nhiên, bản đồ vẫn phải bảo đảm độ rõ của tên đường, ranh giới và các địa điểm.
+
+Bố cục ưu tiên gồm bản đồ ở một phía và danh sách hoặc bảng thông tin ở phía còn lại trên máy tính; chuyển thành bố cục dọc trên điện thoại.
+
+### 6.4. Dữ liệu địa điểm
+
+Mỗi địa điểm có tối thiểu:
+- ID.
+- Tên.
+- Danh mục.
+- Mô tả ngắn.
+- Nội dung chi tiết.
+- Ảnh đại diện.
+- Thư viện ảnh hoặc video nếu có.
+- Tọa độ.
+- Địa chỉ hoặc khu vực.
+- Nguồn tham khảo.
+- Thời điểm xác minh.
+- Trạng thái xuất bản.
+
+Các địa điểm chỉ hiển thị công khai khi thông tin tối thiểu đã được kiểm chứng.
+
+---
+
+## 7. TRANG THÔNG TIN CHI TIẾT
+
+Mỗi bài viết hoặc địa điểm sử dụng trang chi tiết có cấu trúc nhất quán nhưng không đơn điệu.
+
+Nội dung gồm:
+- Tiêu đề.
+- Ảnh bìa chất lượng cao.
+- Chú thích và nguồn ảnh.
+- Thông tin giới thiệu.
+- Các tiêu đề phụ.
+- Nội dung theo từng đoạn.
+- Bộ sưu tập ảnh hoặc video liên quan.
+- Hộp thông tin nhanh khi phù hợp.
+- Bản đồ thu nhỏ nếu bài viết liên quan đến một địa điểm.
+- Tài liệu tham khảo, liên kết nguồn và ngày cập nhật.
+- Nội dung liên quan.
+- Nút quay về chuyên mục.
+
+Ưu tiên văn phong rõ ràng, dễ thuyết trình, không quá dài dòng và phù hợp với đối tượng giáo viên, học sinh.
+
+Không sao chép nguyên văn những bài viết có bản quyền. Hãy tổng hợp, diễn đạt lại và dẫn nguồn phù hợp.
+
+---
+
+## 8. HÌNH ẢNH THẬT VÀ THƯ VIỆN ĐA PHƯƠNG TIỆN
+
+Bắt buộc sử dụng ảnh thực tế, phù hợp với đúng địa điểm hoặc chủ đề tại Củ Chi.
+
+Ưu tiên:
+- Ảnh do nhóm tự chụp.
+- Ảnh từ cơ quan quản lý, đơn vị văn hóa – du lịch chính thức.
+- Ảnh có giấy phép cho phép sử dụng.
+- Ảnh từ nguồn tư liệu uy tín có điều kiện sử dụng rõ ràng.
+
+Không dùng ảnh AI để giả làm ảnh tư liệu thực tế. Không gắn ảnh của địa phương khác với chú thích Củ Chi.
+
+Mỗi hình ảnh phải có:
+- Tên hoặc mô tả.
+- Nguồn ảnh.
+- Tác giả hoặc đơn vị sở hữu nếu có thông tin.
+- Giấy phép hoặc điều kiện sử dụng khi cần thiết.
+- Văn bản thay thế (alt text).
+
+Tạo thư viện ảnh dạng lưới masonry hoặc bố cục tạp chí, có xem ảnh lớn, chú thích, điều hướng ảnh và hiển thị tốt trên điện thoại.
+
+Video nên được nhúng từ nguồn chính thống hoặc lưu trữ theo cách được phép, kèm tiêu đề, nguồn và nội dung mô tả. Không tự động phát video có âm thanh.
+
+Nếu chưa tìm được ảnh phù hợp hoặc chưa xác minh bản quyền, dùng trạng thái “Chưa có ảnh được xác minh” thay vì lấy ảnh ngẫu nhiên.
+
+---
+
+## 9. NGUỒN THÔNG TIN VÀ KIỂM CHỨNG
+
+Độ chính xác quan trọng hơn số lượng nội dung.
+
+### 9.1. Thứ tự ưu tiên nguồn
+
+Ưu tiên:
+1. Cổng thông tin điện tử và văn bản chính thức của cơ quan nhà nước có thẩm quyền.
+2. Cơ quan văn hóa, bảo tàng, di tích, trung tâm du lịch hoặc đơn vị quản lý địa điểm.
+3. Cơ quan báo chí có uy tín.
+4. Sách, tài liệu nghiên cứu, tư liệu lịch sử và công trình chuyên môn có thể truy xuất.
+5. Các nguồn khác có thông tin xuất xứ và độ tin cậy được đánh giá rõ ràng.
+
+Các số liệu hành chính phải ghi mốc thời gian. Thông tin lịch sử cần ưu tiên tài liệu chính thức hoặc tài liệu nghiên cứu đáng tin cậy. Thông tin thực tế về địa điểm cần đối chiếu với đơn vị quản lý hoặc nguồn có thẩm quyền.
+
+### 9.2. Cách hiển thị nguồn
+
+Mỗi bài viết có khu vực “Nguồn tham khảo” gồm:
+- Tên nguồn.
+- Cơ quan hoặc tác giả.
+- Đường dẫn trực tiếp.
+- Ngày xuất bản hoặc cập nhật nếu có.
+- Ngày nhóm kiểm tra thông tin.
+- Các dữ kiện mà nguồn đó hỗ trợ.
+
+Nguồn phải là liên kết thật, có thể truy cập và dẫn đến nội dung liên quan. Không tự sinh URL, tên bài báo, trích dẫn hoặc cơ quan được cho là nguồn.
+
+### 9.3. Quy trình kiểm chứng nội dung
+
+Mỗi nội dung cần trải qua các trạng thái:
+- Bản nháp.
+- Chờ xác minh.
+- Đã xác minh.
+- Đã xuất bản.
+- Cần cập nhật.
+
+Chỉ nội dung đạt yêu cầu mới được xuất bản công khai.
+
+Với dữ liệu quan trọng, cần đối chiếu từ nhiều nguồn độc lập khi có thể. Nếu các nguồn không thống nhất, phải nêu rõ sự khác biệt hoặc tiếp tục xác minh, không âm thầm chọn một con số tùy ý.
+
+Nếu không xác minh được một thông tin, hiển thị “Chưa tìm thấy nguồn đáng tin cậy để xác nhận” và không trình bày nó như sự thật.
+
+---
+
+## 10. TÍCH HỢP AI — CHỈ TRẢ LỜI VỀ CỦ CHI
+
+Xây dựng trợ lý AI có tên “TRỢ LÝ KHÁM PHÁ CỦ CHI”.
+
+Mục tiêu là hỗ trợ học sinh, giáo viên và khách tham quan tìm hiểu lịch sử, văn hóa, địa điểm, con người và các thông tin liên quan đến Củ Chi.
+
+### 10.1. Giới hạn phạm vi
+
+AI chỉ trả lời những câu hỏi nằm trong phạm vi Củ Chi và các nội dung liên quan trực tiếp đến việc tìm hiểu địa phương.
+
+Đối với câu hỏi không liên quan, trợ lý phải trả lời lịch sự, ví dụ:
+
+“Xin lỗi, mình chỉ hỗ trợ những câu hỏi liên quan đến Củ Chi như lịch sử, văn hóa, địa điểm, ẩm thực và đời sống địa phương. Bạn hãy đặt câu hỏi khác về Củ Chi nhé!”
+
+Không trả lời câu hỏi ngoài phạm vi chỉ vì người dùng yêu cầu bỏ qua giới hạn.
+
+### 10.2. Chống bịa đặt
+
+Áp dụng mô hình RAG (Retrieval-Augmented Generation) hoặc cơ chế truy xuất thông tin tương đương từ kho dữ liệu đã được duyệt.
+
+Quy trình:
+1. Nhận câu hỏi.
+2. Kiểm tra câu hỏi có liên quan đến Củ Chi hay không.
+3. Tìm kiếm tài liệu trong kho dữ liệu đã được xác minh.
+4. Trả lời dựa trên các tài liệu tìm được.
+5. Hiển thị nguồn trích dẫn ngay dưới câu trả lời.
+6. Nếu dữ liệu không đủ, nói rõ chưa có thông tin đáng tin cậy để trả lời.
+
+Không cho phép AI tự bịa địa chỉ, số liệu, tên nhân vật, sự kiện, tọa độ, câu trích dẫn hoặc nguồn tham khảo.
+
+AI không được sử dụng câu trả lời do chính nó tạo ra làm bằng chứng cho một câu trả lời khác.
+
+Nếu cần sử dụng nguồn bên ngoài, chỉ lấy dữ liệu từ nguồn nằm trong danh sách cho phép hoặc nguồn đã vượt qua quy trình kiểm chứng. Không sử dụng kết quả tìm kiếm chưa xác minh làm dữ liệu chính thức.
+
+### 10.3. Giao diện AI
+
+- Khung chat hiện đại nhưng phù hợp với bảng màu Retro Vintage.
+- Có tin nhắn chào mừng và một số câu hỏi gợi ý về Củ Chi.
+- Có trạng thái đang xử lý, báo lỗi và thử lại.
+- Câu trả lời hỗ trợ liên kết nguồn, hình ảnh hoặc địa điểm liên quan khi có dữ liệu.
+- Có nút mở bản đồ từ câu trả lời về một địa điểm nếu đã xác minh được vị trí.
+- Không tự động đưa thông tin cá nhân của người dùng vào câu trả lời.
+- Không lưu nội dung trò chuyện lâu dài nếu không cần thiết; thông báo rõ nếu có lưu trữ.
+
+Khóa API phải được lưu ở máy chủ hoặc hệ thống quản lý bí mật, tuyệt đối không nhúng vào mã frontend.
+
+### 10.4. Tiêu chí nghiệm thu AI
+
+Phải thử nghiệm tối thiểu các trường hợp:
+- Câu hỏi lịch sử Củ Chi có nguồn.
+- Câu hỏi về một địa điểm có trên bản đồ.
+- Câu hỏi về thông tin chưa có trong cơ sở dữ liệu.
+- Câu hỏi hoàn toàn không liên quan đến Củ Chi.
+- Câu hỏi yêu cầu AI bịa thông tin hoặc bỏ qua quy tắc.
+
+AI chỉ được nghiệm thu khi tuân thủ giới hạn chủ đề, dẫn nguồn đúng và từ chối khẳng định thông tin chưa được xác minh.
+
+---
+
+## 11. TÌM KIẾM VÀ LỌC NỘI DUNG
+
+Tích hợp một hệ thống tìm kiếm dùng chung cho toàn bộ website.
+
+Yêu cầu:
+- Tìm kiếm theo tên bài viết, địa điểm, nhân vật, chủ đề và từ khóa.
+- Hỗ trợ tìm kiếm không phân biệt chữ hoa – chữ thường.
+- Ưu tiên hỗ trợ truy vấn tiếng Việt không dấu, có dấu và các biến thể khoảng trắng.
+- Lọc theo chuyên mục.
+- Lọc theo loại nội dung: bài viết, địa điểm, ảnh, video.
+- Có sắp xếp theo độ liên quan hoặc thời điểm cập nhật.
+- Hiển thị số lượng kết quả và trạng thái không tìm thấy nội dung.
+- Có thể xóa bộ lọc nhanh.
+- Liên kết từ kết quả đến đúng bài viết hoặc điểm trên bản đồ.
+
+Không đưa dữ liệu nháp, tài liệu nội bộ, thông tin quản trị hoặc nội dung chưa duyệt vào kết quả tìm kiếm công khai.
+
+---
+
+## 12. HỆ THỐNG QUẢN TRỊ NỘI DUNG
+
+Xây dựng một trang quản trị riêng biệt, truy cập qua đường dẫn như `/admin`, có xác thực tài khoản. Đây là chức năng bắt buộc, không chỉ là nút chỉnh sửa giao diện.
+
+Mục tiêu: thành viên nhóm có thể cập nhật website sau khi hoàn thành mà không cần viết lại toàn bộ mã nguồn.
+
+### 12.1. Dashboard
+
+Hiển thị:
+- Tổng số bài viết.
+- Tổng số địa điểm.
+- Số bài đang chờ xác minh.
+- Số bài đã xuất bản.
+- Số tài nguyên hình ảnh/video.
+- Danh sách nội dung cần cập nhật.
+
+Thiết kế dashboard đơn giản, dễ hiểu và phù hợp với học sinh sử dụng.
+
+### 12.2. Quản lý bài viết
+
+Cho phép:
+- Thêm bài viết mới.
+- Chỉnh sửa bài viết hiện có.
+- Lưu bản nháp.
+- Xem trước nội dung trước khi xuất bản.
+- Xuất bản hoặc ẩn bài viết.
+- Xóa bài viết có bước xác nhận.
+- Chọn chuyên mục và bài viết liên quan.
+- Thêm các nguồn tham khảo.
+- Ghi ngày cập nhật và người biên tập.
+
+Sử dụng trình soạn thảo nội dung trực quan dạng WYSIWYG hoặc Markdown có bản xem trước. Người dùng không cần tự viết mã HTML.
+
+### 12.3. Quản lý hình ảnh và video
+
+Cho phép:
+- Tải ảnh lên từ máy tính hoặc điện thoại.
+- Chèn ảnh vào bài viết.
+- Thay ảnh đại diện.
+- Sửa chú thích, văn bản thay thế, nguồn ảnh và thông tin bản quyền.
+- Thêm, xóa hoặc thay đổi thứ tự ảnh trong thư viện.
+- Thêm video từ URL hợp lệ hoặc tải video nếu hạ tầng cho phép.
+- Xem trước nội dung đa phương tiện trước khi đăng.
+- Hiển thị lỗi với tệp sai định dạng, quá dung lượng hoặc URL không hợp lệ.
+
+Tối ưu kích thước ảnh và tạo phiên bản phù hợp cho thiết bị di động khi có thể.
+
+### 12.4. Quản lý bản đồ
+
+Cho phép quản trị viên:
+- Thêm địa điểm.
+- Chỉnh sửa thông tin địa điểm.
+- Chọn danh mục.
+- Đặt tọa độ trên bản đồ bằng thao tác chọn vị trí.
+- Thêm nguồn xác minh tọa độ.
+- Cập nhật ảnh và mô tả.
+- Ẩn điểm đánh dấu hoặc xóa địa điểm.
+- Xem trước popup và trang chi tiết.
+
+Tọa độ mới cần được kiểm tra trước khi xuất bản để hạn chế việc ghim nhầm vị trí.
+
+### 12.5. Quy trình duyệt và phân quyền
+
+Tối thiểu có hai vai trò:
+- **Biên tập viên:** tạo và chỉnh sửa nội dung, tải tài nguyên lên, gửi nội dung chờ duyệt.
+- **Quản trị viên:** duyệt và xuất bản nội dung, quản lý tài khoản và cấu hình hệ thống.
+
+Với nhóm nhỏ, có thể chỉ cần một tài khoản quản trị có quyền đầy đủ; tuy nhiên, phải có xác thực và không được để trang quản trị mở công khai cho mọi người.
+
+Phân biệt rõ nội dung đã duyệt với nội dung chưa xác minh. Lưu lịch sử cập nhật cơ bản và thời điểm chỉnh sửa khi phù hợp.
+
+### 12.6. Dễ bảo trì
+
+Thiết kế website theo hướng dữ liệu tách biệt khỏi giao diện. Khi thêm bài viết, hình ảnh hoặc địa điểm, website tự động hiển thị ở các danh sách, trang chi tiết, kết quả tìm kiếm và bản đồ tương ứng.
+
+Không viết cố định toàn bộ nội dung trong từng trang frontend. Không yêu cầu sửa nhiều tệp mã nguồn chỉ để thay ảnh hoặc cập nhật đoạn văn.
+
+---
+
+## 13. CÔNG NGHỆ ĐỀ XUẤT
+
+Chọn công nghệ hiện đại, ổn định, dễ triển khai và phù hợp với dự án học sinh.
+
+### Frontend
+- React kết hợp Next.js và TypeScript.
+- Tailwind CSS hoặc hệ thống CSS có tổ chức rõ ràng.
+- Thư viện component được tùy chỉnh theo phong cách thiết kế riêng.
+- Framer Motion hoặc giải pháp tương đương cho các chuyển động nhẹ.
+- Leaflet để triển khai bản đồ tương tác.
+- Trình tối ưu ảnh phù hợp với nền tảng triển khai.
+
+### Backend và dữ liệu
+Ưu tiên Supabase để cung cấp:
+- PostgreSQL lưu bài viết, danh mục, nguồn tham khảo và địa điểm.
+- Supabase Auth cho xác thực trang quản trị.
+- Supabase Storage để quản lý ảnh và tài nguyên đa phương tiện.
+- Row Level Security (RLS) để phân quyền truy cập dữ liệu.
+- API hoặc server-side functions để xử lý các tác vụ cần bảo vệ.
+
+Có thể thay bằng giải pháp tương đương nếu nền tảng tạo website có hỗ trợ tốt hơn, nhưng phải đáp ứng đủ các chức năng.
+
+### AI
+- Tích hợp một mô hình ngôn ngữ qua API phía máy chủ.
+- Sử dụng RAG hoặc hệ thống truy xuất tài liệu đã xác minh.
+- Xây dựng danh sách nguồn được phép sử dụng.
+- Có bước phân loại câu hỏi và kiểm tra kết quả.
+- Không gửi khóa bí mật về trình duyệt.
+
+### Triển khai
+Ưu tiên nền tảng hỗ trợ triển khai HTTPS, tên miền tùy chỉnh, biến môi trường và cấu hình rõ ràng, chẳng hạn Vercel kết hợp Supabase.
+
+Không chỉ tạo giao diện minh họa. Các chức năng được giới thiệu phải có logic xử lý và nguồn dữ liệu tương ứng. Nếu cần khóa API, thông tin tài khoản hoặc cấu hình từ người triển khai, tạo hướng dẫn thiết lập rõ ràng thay vì giả lập rằng dịch vụ đã hoạt động.
+
+---
+
+## 14. TỐI ƯU CHO THUYẾT TRÌNH VÀ CHẤM ĐIỂM
+
+Website cần giúp người trình bày giới thiệu dự án rõ ràng, liền mạch và có điểm nhấn.
+
+### 14.1. Điều hướng khi thuyết trình
+
+- Tạo lối truy cập nhanh đến các phần nổi bật.
+- Có thể sử dụng trang “Khám phá nhanh” hoặc mục “Điểm nhấn của Củ Chi”.
+- Những nội dung quan trọng cần ít thao tác để mở.
+- Bản đồ phải có dữ liệu mẫu đã xác minh để dễ trình diễn.
+- Trợ lý AI có một số câu hỏi gợi ý đã được thử nghiệm.
+- Không để nội dung quan trọng phụ thuộc vào việc chờ tải quá lâu.
+
+Có thể thêm chế độ trình chiếu toàn màn hình cho các bài giới thiệu, ảnh và bản đồ; không bắt buộc đối với toàn website.
+
+### 14.2. Tiêu chuẩn chất lượng
+
+Giao diện cần:
+- Có thứ bậc thị giác rõ ràng.
+- Không lỗi chữ, lỗi tràn màn hình hoặc ảnh biến dạng.
+- Không có đường dẫn hỏng, nút không hoạt động hoặc nội dung giả.
+- Có trạng thái đang tải, thành công, không có dữ liệu và lỗi phù hợp.
+- Dễ đọc khi trình chiếu trên màn hình lớp học.
+- Có thiết kế responsive đầy đủ.
+
+Không tự chèn điểm số giả, đánh giá giả hoặc lời chứng thực không có thật để làm website trông chuyên nghiệp hơn.
+
+### 14.3. Công cụ hỗ trợ thuyết trình
+
+Tích hợp tùy chọn:
+- Nút “Bắt đầu khám phá”.
+- Trang giới thiệu nhóm.
+- Các liên kết nhanh đến bản đồ, lịch sử, văn hóa và AI.
+- Chức năng trở về đầu trang.
+- Trang nguồn tham khảo riêng để giáo viên thuận tiện kiểm tra.
+
+Nếu bổ sung mục chấm điểm hoặc góp ý, chỉ ghi nhận đánh giá thực tế từ người dùng, có biện pháp hạn chế spam và không thu thập thông tin cá nhân không cần thiết. Không tự tạo kết quả đánh giá để trình bày như phản hồi thật.
+
+---
+
+## 15. SEO, HIỆU NĂNG VÀ KHẢ NĂNG TRUY CẬP
+
+Thực hiện đầy đủ:
+- Responsive cho điện thoại, máy tính bảng và máy tính.
+- Tối ưu ảnh, lazy loading cho nội dung ngoài màn hình đầu tiên.
+- Tiêu đề trang, meta description và Open Graph phù hợp.
+- URL dễ đọc, ví dụ `/lich-su`, `/ban-do-van-hoa`, `/dia-diem/ten-dia-diem`.
+- Văn bản thay thế cho ảnh.
+- Điều hướng bằng bàn phím.
+- Hiển thị focus rõ ràng cho các thành phần tương tác.
+- Form có nhãn, thông báo lỗi dễ hiểu và trạng thái gửi.
+- Có trang 404 và trạng thái lỗi dịch vụ.
+- Tối ưu các chỉ số hiệu năng web, đặc biệt LCP, INP và CLS.
+- Hỗ trợ giảm chuyển động theo thiết lập hệ điều hành.
+- Không sử dụng hiệu ứng nặng làm giảm tốc độ tải trang.
+
+---
+
+## 16. BẢO MẬT VÀ ĐỘ TIN CẬY
+
+- Có xác thực đối với trang quản trị.
+- Không để người dùng chưa đăng nhập tự sửa dữ liệu.
+- Cấu hình quyền truy cập ở backend, không chỉ ẩn nút ở frontend.
+- Kiểm tra dữ liệu đầu vào và các tệp được tải lên.
+- Phân biệt dữ liệu công khai với dữ liệu quản trị.
+- Bảo vệ khóa API, thông tin kết nối và bí mật hệ thống.
+- Hạn chế gửi yêu cầu AI liên tục bằng cơ chế kiểm soát tần suất phù hợp.
+- Có phương án sao lưu và phục hồi dữ liệu theo khả năng nền tảng.
+- Có chính sách cơ bản về dữ liệu người dùng và nội dung được lưu.
+- Kiểm tra quyền sử dụng ảnh, video và tài liệu trước khi xuất bản.
+
+---
+
+## 17. DỮ LIỆU KHỞI TẠO VÀ NỘI DUNG MẪU
+
+Tạo một bộ dữ liệu khởi tạo có cấu trúc cho các chuyên mục và địa điểm tiêu biểu của Củ Chi.
+
+Ưu tiên nghiên cứu các nhóm nội dung:
+- Lịch sử và di tích.
+- Địa đạo Củ Chi và các địa điểm liên quan.
+- Văn hóa, truyền thống và đời sống địa phương.
+- Thiên nhiên, nông nghiệp và cảnh quan.
+- Ẩm thực và đặc sản.
+- Địa điểm du lịch và tìm hiểu thực tế.
+
+Đây là các hướng nghiên cứu nội dung, không phải khẳng định rằng mọi địa điểm đều thuộc địa giới hành chính hiện hành của xã Củ Chi. Trước khi tạo bài viết và đưa lên bản đồ, phải kiểm tra chính xác tên, vị trí, tình trạng hoạt động và đơn vị quản lý.
+
+Với mỗi bản ghi, phải có ID, nội dung, nguồn, ngày xác minh và trạng thái biên tập. Nội dung chưa được xác minh phải được đánh dấu là bản nháp và không xuất hiện trên website công khai.
+
+Không điền các thông tin lịch sử, dữ liệu dân số, địa chỉ hay tọa độ bằng số liệu tự suy đoán để làm đầy cơ sở dữ liệu.
+
+---
+
+## 18. CÁC BƯỚC THỰC HIỆN
+
+Hãy thực hiện theo trình tự sau:
+
+**Bước 1 — Xây dựng kiến trúc:** xác định sitemap, cấu trúc dữ liệu, mô hình phân quyền và các chức năng chính.
+
+**Bước 2 — Thiết kế giao diện:** tạo hệ thống màu sắc, typography, component, hero, trang chủ, trang chi tiết, bản đồ, thư viện ảnh và giao diện mobile.
+
+**Bước 3 — Xây dựng cơ sở dữ liệu:** tạo các bảng cần thiết, quan hệ dữ liệu, chính sách truy cập và dữ liệu khởi tạo.
+
+**Bước 4 — Triển khai chức năng:** kết nối tìm kiếm, bộ lọc, bản đồ, trang chi tiết, AI, upload hình ảnh/video và trang quản trị.
+
+**Bước 5 — Xây dựng nguồn tham khảo:** thu thập nội dung, kiểm chứng dữ kiện, bổ sung trích dẫn và đánh dấu trạng thái xuất bản.
+
+**Bước 6 — Kiểm thử:** kiểm tra giao diện đa thiết bị, các nút, đường dẫn, bản đồ, AI, phân quyền và các trạng thái lỗi.
+
+**Bước 7 — Hoàn thiện triển khai:** cung cấp hướng dẫn chạy dự án, cấu hình biến môi trường, kết nối cơ sở dữ liệu, thiết lập API và triển khai website.
+
+Nếu thiếu khóa API, tài khoản lưu trữ hoặc thông tin xác thực, hãy xây dựng tích hợp theo cấu trúc sẵn sàng kết nối và nêu chính xác những bước còn cần người triển khai thực hiện. Không tuyên bố một chức năng đã hoạt động khi chưa được kết nối và kiểm thử.
+
+---
+
+## 19. TIÊU CHÍ NGHIỆM THU CUỐI CÙNG
+
+Chỉ xem dự án là hoàn chỉnh khi đáp ứng các tiêu chí sau:
+
+1. Website có bản sắc Retro Vintage và Editorial Design rõ ràng.
+2. Đúng bảng màu, font chữ và có giao diện responsive.
+3. Màn hình loading có ảnh Củ Chi, thanh tiến độ và đầy đủ tên năm thành viên lớp 12A5.
+4. Trang chủ và các chuyên mục điều hướng được bình thường.
+5. Nội dung có nguồn thật, trích dẫn rõ và phân biệt dữ liệu xác minh với bản nháp.
+6. Bản đồ Thành phố Hồ Chí Minh tương tác được, hiển thị các địa điểm có tọa độ đã kiểm chứng.
+7. Tìm kiếm và bộ lọc hoạt động trên dữ liệu thực.
+8. AI từ chối câu hỏi ngoài chủ đề và không khẳng định thông tin chưa được kiểm chứng.
+9. Trang quản trị có xác thực, cho phép thêm, sửa, xóa và xuất bản nội dung theo quyền.
+10. Có thể thêm ảnh, video và cập nhật địa điểm mà không phải viết lại website.
+11. Không lộ khóa API hoặc quyền quản trị.
+12. Các lỗi, trạng thái trống và tình huống mất kết nối được xử lý hợp lý.
+13. Có hướng dẫn cài đặt, cấu hình, sử dụng và triển khai.
+14. Các chức năng trọng yếu đã được kiểm tra thực tế thay vì chỉ trình bày trên giao diện.
+
+**YÊU CẦU KẾT THÚC:** Hãy ưu tiên sản phẩm hoàn chỉnh, vận hành được, có chất lượng thẩm mỹ cao và thông tin đáng tin cậy. Khi phải lựa chọn giữa một hiệu ứng trang trí phức tạp và một chức năng cốt lõi, ưu tiên chức năng cốt lõi. Khi phải lựa chọn giữa nội dung nhiều nhưng không rõ nguồn và nội dung ít hơn nhưng đã kiểm chứng, ưu tiên nội dung đã kiểm chứng.
+
+Kết quả cuối cùng cần mang cảm giác của một ấn phẩm văn hóa địa phương được thiết kế chỉn chu, có chiều sâu lịch sử, có bản sắc Củ Chi và đủ chất lượng để học sinh lớp 12A5 sử dụng trong buổi thuyết trình, đồng thời để giáo viên trực tiếp trải nghiệm và đánh giá.
