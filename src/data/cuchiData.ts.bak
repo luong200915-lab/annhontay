@@ -1,0 +1,755 @@
+import {
+  Article,
+  LocationPoint,
+  MediaItem,
+  TeamMember,
+  VerificationSource,
+  HistoricalEvent
+} from "../types";
+
+export const OFFICIAL_SOURCES: VerificationSource[] = [
+  {
+    id: "src-1",
+    name: "Cổng thông tin điện tử UBND Huyện An Nhơn Tây",
+    organization: "Ủy ban Nhân dân Huyện An Nhơn Tây, TP. Hồ Chí Minh",
+    url: "https://cuchi.hochiminhcity.gov.vn",
+    publishDate: "2026-01-15",
+    verifiedDate: "2026-10-18",
+    supportedFacts: [
+      "Thông tin đơn vị hành chính, địa giới, dân số và cơ cấu kinh tế địa phương",
+      "Định hướng phát triển du lịch sinh thái nông nghiệp và làng nghề truyền thống",
+    ],
+  },
+  {
+    id: "src-2",
+    name: "Khu Di tích Lịch sử Địa đạo An Nhơn Tây",
+    organization: "Ban Quản lý Di tích Lịch sử Địa đạo An Nhơn Tây",
+    url: "http://diadaocuchi.com.vn",
+    publishDate: "2023-12-10",
+    verifiedDate: "2026-10-19",
+    supportedFacts: [
+      "Tổng chiều dài hệ thống địa đạo hơn 250km được đào trong kháng chiến chống Mỹ và chống Pháp",
+      "Cấu trúc 3 tầng địa đạo chịu được bom pháo và hệ thống bếp Hoàng Cầm không khói",
+      "Khu Đền Tưởng niệm Liệt sĩ Bến Dược khắc tên 44.752 liệt sĩ hy sinh vì Tổ quốc",
+    ],
+  },
+  {
+    id: "src-3",
+    name: "Sở Du lịch Thành phố Hồ Chí Minh",
+    organization: "Trung tâm Xúc tiến Du lịch TP.HCM (Visit HCMC)",
+    url: "https://visithcmc.vn",
+    publishDate: "2026-03-20",
+    verifiedDate: "2026-10-19",
+    supportedFacts: [
+      "Hành trình du lịch đường sông Sài Gòn đi An Nhơn Tây",
+      "Làng nghề Bánh tráng Phú Hòa Đông và đan lát mây tre Thái Mỹ",
+      "Đặc sản ẩm thực Bò tơ An Nhơn Tây và củ mì luộc chấm muối mè",
+    ],
+  },
+  {
+    id: "src-4",
+    name: "Cục Di sản Văn hóa Việt Nam",
+    organization: "Bộ Văn hóa, Thể thao và Du lịch",
+    url: "http://dsvh.gov.vn",
+    publishDate: "2015-12-23",
+    verifiedDate: "2026-10-15",
+    supportedFacts: [
+      "Địa đạo An Nhơn Tây được xếp hạng Di tích Quốc gia Đặc biệt theo Quyết định số 2367/QĐ-TTg ngày 23/12/2015",
+    ],
+  },
+  {
+    id: "src-11",
+    name: " ",
+    organization: "",
+    url: "",
+    publishDate: "  ",
+    verifiedDate: " ",
+    supportedFacts: [
+      "",
+    ],
+  },
+];
+
+export const INITIAL_ARTICLES: Article[] = [
+  {
+    id: "art-1",
+    slug: "dia-dao-cu-chi-huyen-thoai-dat-thep",
+    title: "ĐỊA ĐẠO AN NHƠN TÂY — HUYỀN THOẠI TRONG LÒNG ĐẤT THÉP",
+    subtitle:
+      "Kỳ quan quân sự dài hơn 250km biểu tượng cho ý chí kiên cường của quân dân An Nhơn Tây",
+    category: "history",
+    categoryName: "Lịch sử & Truyền thống",
+    summary:
+      "Hệ thống địa đạo An Nhơn Tây là một công trình quân sự kỳ vĩ độc nhất vô nhị, dài hơn 250km xuyên lòng đất với 3 tầng ngầm liên hoàn, phòng họp, bệnh xá và bếp Hoàng Cầm.",
+    content: [
+      "Địa đạo An Nhơn Tây được hình thành trong thời kỳ kháng chiến chống thực dân Pháp, khoảng năm 1948, ban đầu tại hai xã Tân Phú Trung và Phước Vĩnh An. Lúc đầu, địa đạo chỉ gồm những đoạn hầm ngắn, phục vụ việc trú ẩn và hoạt động của lực lượng cách mạng trong vùng địch kiểm soát.",
+      "Bước sang thời kỳ kháng chiến chống Mỹ, từ năm 1961, hệ thống địa đạo được mở rộng và phát triển mạnh mẽ. Đến khoảng năm 1963–1966, nhiều đoạn hầm đã được nối liền thành mạng lưới liên hoàn, đặc biệt tại các xã phía Bắc An Nhơn Tây. Hệ thống này trở thành căn cứ chiến đấu, trú ẩn và bảo vệ lực lượng cách mạng, thể hiện sự sáng tạo, mưu trí của quân và dân địa phương.",
+      "Địa đạo có những đoạn được xây dựng ở nhiều độ sâu khác nhau, với hệ thống đường hầm, phòng trú ẩn, nơi hội họp, khu vực sinh hoạt và các lỗ thông hơi được ngụy trang khéo léo. Những công trình này giúp quân dân An Nhơn Tây duy trì hoạt động trong điều kiện chiến tranh ác liệt.",
+      "Bên cạnh đó, bếp Hoàng Cầm là một sáng kiến quan trọng trong sinh hoạt thời chiến. Nhờ hệ thống dẫn khói qua các đường rãnh, khói được phân tán và giảm khả năng bị đối phương phát hiện, góp phần bảo đảm an toàn cho lực lượng hoạt động trong địa đạo.",
+      "Với tinh thần chiến đấu kiên cường, mưu trí và sáng tạo, ngày 17/9/1967, tại Đại hội Anh hùng, Chiến sĩ thi đua và Dũng sĩ các lực lượng vũ trang nhân dân giải phóng toàn miền Nam lần thứ II, quân và dân An Nhơn Tây vinh dự được Ủy ban Trung ương Mặt trận Dân tộc Giải phóng miền Nam Việt Nam tuyên dương danh hiệu “Đất thép thành đồng” và tặng thưởng Huân chương Thành đồng hạng Ba.",
+    ],
+    coverImage: "/CuChi/assets/aistudio/media_articles/media1.jpg",
+    imageCaption:
+      "Cửa ngầm địa đạo được ngụy trang bằng nắp gỗ phủ lá khô giữa rừng chồi An Nhơn Tây",
+    imageCredit: "Tư liệu Khu Di tích Lịch sử Địa đạo An Nhơn Tây",
+    author: "Trần Đức Lương (Lớp 12A5)",
+    locationId: "loc-1",
+    sources: [OFFICIAL_SOURCES[1], OFFICIAL_SOURCES[3]],
+    tags: [
+      "Địa đạo",
+      "Đất thép thành đồng",
+      "Bến Dược",
+      "Bến Đình",
+      "Di tích Quốc gia đặc biệt",
+    ],
+    status: "verified",
+    updatedAt: "2026-10-18",
+    featured: true,
+    highlights: [
+      "Tổng chiều dài công trình: hơn 250km qua nhiều xã",
+      "Độ sâu 3 tầng liên hoàn: từ 3m đến 12m",
+      "Danh hiệu vinh danh: Đất Thép Thành Đồng (17/9/1967)",
+      "Xếp hạng: Di tích Quốc gia Đặc biệt (2015)",
+    ],
+  },
+  {
+    id: "art-2",
+    slug: "den-tuong-niem-liet-si-ben-duoc",
+    title: "ĐỀN BẾN DƯỢC — KHẮC GHI 44.752 ANH HÙNG LIỆT SĨ",
+    subtitle: "Nơi hội tụ linh khí thiêng liêng bên dòng sông Sài Gòn lịch sử",
+    category: "history",
+    categoryName: "Lịch sử & Truyền thống",
+    summary:
+      "Đền Tưởng niệm Liệt sĩ Bến Dược là công trình văn hóa - tâm linh quy mô lớn tọa lạc bên bờ sông Sài Gòn, nơi khắc tên 44.752 người con ưu tú đã ngã xuống trên chiến trường Sài Gòn - Chợ Lớn - Gia Định.",
+    content: [
+      "Đền Tưởng niệm Liệt sĩ Bến Dược là công trình văn hóa, lịch sử có ý nghĩa đặc biệt, nằm tại vùng đất An Nhơn Tây anh hùng, gắn liền với truyền thống đấu tranh kiên cường của quân và dân Sài Gòn – Gia Định trong hai cuộc kháng chiến chống thực dân Pháp và đế quốc Mỹ.",
+      "Mang đậm nét kiến trúc truyền thống Việt Nam, đền là nơi tưởng niệm Chủ tịch Hồ Chí Minh, các Mẹ Việt Nam anh hùng, các anh hùng liệt sĩ và đồng bào, chiến sĩ đã hy sinh vì độc lập, tự do của Tổ quốc. Trong không gian trang nghiêm của đền, những tên tuổi được khắc ghi trên bia đá là minh chứng cho sự hy sinh cao cả của các thế hệ đi trước.",
+      "Theo thông tin của Ủy ban Mặt trận Tổ quốc Việt Nam TP.HCM năm 2024, Đền Bến Dược ghi danh 44.520 liệt sĩ, trong đó có 9.322 liệt sĩ quê ở 40 tỉnh, thành khác đã chiến đấu và hy sinh trên vùng đất Sài Gòn – Gia Định.",
+      "Ngày nay, Đền Bến Dược không chỉ là nơi để các thế hệ tưởng nhớ và tri ân những người đã ngã xuống vì Tổ quốc, mà còn là địa chỉ đỏ có giá trị giáo dục sâu sắc, góp phần bồi đắp lòng yêu nước, niềm tự hào dân tộc và ý thức trách nhiệm của thế hệ trẻ đối với sự nghiệp xây dựng, bảo vệ đất nước.",
+    ],
+    coverImage: "/CuChi/assets/aistudio/media_articles/media2.jpg",
+    imageCaption:
+      "Khuôn viên thanh tịnh và cổng tam quan Đền Tưởng niệm Liệt sĩ Bến Dược",
+    imageCredit: "Ban Quản lý Di tích Địa đạo An Nhơn Tây",
+    author: "Trần Đức Lương & Phan Khánh Linh (Lớp 12A5)",
+    locationId: "loc-2",
+    sources: [OFFICIAL_SOURCES[1]],
+    tags: [
+      "Đền Bến Dược",
+      "Tri ân liệt sĩ",
+      "Giáo sư Trần Văn Giàu",
+      "Sông Sài Gòn",
+    ],
+    status: "verified",
+    updatedAt: "2026-10-18",
+    featured: true,
+    highlights: [
+      "Khởi công: 19/5/1993, khánh thành: 19/12/1995",
+      "Số lượng liệt sĩ được khắc tên: 44.752 liệt sĩ",
+      "Tác giả bài văn bia: Cố Giáo sư Trần Văn Giàu",
+    ],
+  },
+  {
+    id: "art-3",
+    slug: "lang-banh-trang-phu-hoa-dong",
+    title: "LÀNG NGHỀ BÁNH TRÁNG PHÚ HÒA ĐÔNG — HƯƠNG GẠO TRĂM NĂM",
+    subtitle: "Nét tinh hoa ẩm thực đất An Nhơn Tây bay xa khắp năm châu bốn biển",
+    category: "culture",
+    categoryName: "Văn hóa & Đời sống",
+    summary:
+      "Trải qua hơn một thế kỷ thăng trầm, làng nghề bánh tráng Phú Hòa Đông vẫn giữ vững lửa nghề, biến hạt gạo quê hương thành những mẻ bánh tráng mỏng dẻo, thơm lừng.",
+    content: [
+      "Đền Tưởng niệm Liệt sĩ Bến Dược là công trình văn hóa, lịch sử có ý nghĩa đặc biệt, nằm tại vùng đất An Nhơn Tây anh hùng, gắn liền với truyền thống đấu tranh kiên cường của quân và dân Sài Gòn – Gia Định trong hai cuộc kháng chiến chống thực dân Pháp và đế quốc Mỹ.",
+      "Mang đậm nét kiến trúc truyền thống Việt Nam, đền là nơi tưởng niệm Chủ tịch Hồ Chí Minh, các Mẹ Việt Nam anh hùng, các anh hùng liệt sĩ và đồng bào, chiến sĩ đã hy sinh vì độc lập, tự do của Tổ quốc. Trong không gian trang nghiêm của đền, những tên tuổi được khắc ghi trên bia đá là minh chứng cho sự hy sinh cao cả của các thế hệ đi trước.",
+      "Theo thông tin của Ủy ban Mặt trận Tổ quốc Việt Nam TP.HCM năm 2024, Đền Bến Dược ghi danh 44.520 liệt sĩ, trong đó có 9.322 liệt sĩ quê ở 40 tỉnh, thành khác đã chiến đấu và hy sinh trên vùng đất Sài Gòn – Gia Định.",
+      "Ngày nay, Đền Bến Dược không chỉ là nơi để các thế hệ tưởng nhớ và tri ân những người đã ngã xuống vì Tổ quốc, mà còn là địa chỉ đỏ có giá trị giáo dục sâu sắc, góp phần bồi đắp lòng yêu nước, niềm tự hào dân tộc và ý thức trách nhiệm của thế hệ trẻ đối với sự nghiệp xây dựng, bảo vệ đất nước.",
+    ],
+    coverImage: "/CuChi/assets/aistudio/media_articles/media3.jpg",
+    imageCaption:
+      "Nghệ nhân tráng từng lớp bánh mỏng đều tay trên nồi hơi truyền thống tại Phú Hòa Đông",
+    imageCredit: "Tạp chí Du lịch TP.HCM",
+    author: "Trần Hà Phụng Nhi (Lớp 12A5)",
+    locationId: "loc-4",
+    sources: [OFFICIAL_SOURCES[0], OFFICIAL_SOURCES[2]],
+    tags: [
+      "Bánh tráng",
+      "Phú Hòa Đông",
+      "Làng nghề truyền thống",
+      "Ẩm thực Việt",
+    ],
+    status: "verified",
+    updatedAt: "2026-10-17",
+    featured: true,
+    highlights: [
+      "Lịch sử hình thành: hơn 100 năm",
+      "Đặc trưng: dẻo dai tự nhiên, thơm mùi gạo mới, cuốn không rách",
+      "Thị trường tiêu thụ: nội địa và xuất khẩu trên 30 quốc gia",
+    ],
+  },
+  {
+    id: "art-4",
+    slug: "dac-san-am-thuc-bo-to-cu-chi",
+    title: "BÒ TƠ AN NHƠN TÂY — VỊ NGỌT TINH TÚY ĐỒNG QUÊ",
+    subtitle:
+      "Món ngon nức tiếng chinh phục thực khách bốn phương với lớp da giòn sần sật và thớ thịt mềm ngọt",
+    category: "cuisine",
+    categoryName: "Ẩm thực & Đặc sản",
+    summary:
+      "Bò tơ An Nhơn Tây từ lâu đã trở thành một thương hiệu ẩm thực trứ danh. Thịt bò tơ non mềm, da mỏng giòn nướng vàng rộm cuốn bánh tráng rau rừng chấm mắm nêm đậm đà.",
+    content: [
+      "Nhắc đến ẩm thực An Nhơn Tây, không thể không nhắc đến bò tơ — món đặc sản nổi tiếng bởi vị ngọt tự nhiên, độ mềm và hương thơm đặc trưng. Bò tơ thường được tuyển chọn ở độ tuổi khoảng 5–6 tháng, với trọng lượng phù hợp để thịt giữ được độ mềm, săn chắc và không bị bở.",
+      "Điểm hấp dẫn của bò tơ An Nhơn Tây nằm ở phần thịt mềm ngọt, lớp da tương đối mỏng và phần mỡ vừa phải. Qua bàn tay chế biến khéo léo của người đầu bếp, thịt bò có thể được luộc, hấp hoặc nướng trên than hồng, làm nổi bật hương vị tự nhiên của nguyên liệu.",
+      "Một trong những món được nhiều thực khách yêu thích là bò tơ luộc cuốn rau rừng. Những lát thịt chín tới được ăn cùng bánh tráng, các loại rau sống như quế vị, lá lụa, đọt xoài và những loại rau theo mùa, sau đó chấm với mắm đồng hoặc mắm nêm pha đậm đà. Sự kết hợp giữa vị ngọt của thịt, độ dai mềm của bánh tráng, vị thanh mát của rau và vị mặn mà của nước chấm tạo nên nét hấp dẫn riêng cho món ăn.",
+      "Bên cạnh món luộc cuốn rau rừng, bò tơ còn được chế biến thành nhiều món khác như bò nướng than hồng, bò nhúng, lẩu bò, chảo bò và bò kho cơm cháy. Mỗi cách chế biến đem đến một hương vị riêng, góp phần làm phong phú thêm văn hóa ẩm thực địa phương.",
+      "Ngày nay, bò tơ đã trở thành một trong những món ăn được nhiều du khách tìm thưởng thức khi đến An Nhơn Tây. Không chỉ hấp dẫn bởi hương vị, món ăn còn gợi lên nét mộc mạc, gần gũi của ẩm thực đồng quê Nam Bộ.",
+    ],
+    coverImage: "/CuChi/assets/aistudio/media_articles/media4.jpg",
+    imageCaption:
+      "Bò tơ nướng than hồng thơm phức cuốn cùng rau rừng và bánh tráng An Nhơn Tây",
+    imageCredit: "Sở Du lịch TP.HCM",
+    author: "Trần Hà Phụng Nhi & Nguyễn Thị Quỳnh Như (Lớp 12A5)",
+    locationId: "loc-8",
+    sources: [OFFICIAL_SOURCES[2]],
+    tags: ["Bò tơ", "Món ngon An Nhơn Tây", "Bò tơ Xuân Đào", "Rau rừng", "Mắm nêm"],
+    status: "verified",
+    updatedAt: "2026-10-18",
+    featured: true,
+    highlights: [
+      "Độ tuổi bò đạt chuẩn: 5 - 6 tháng tuổi",
+      "Đặc sản đi kèm: Rau rừng sông Sài Gòn, mắm nêm chua ngọt",
+      "Món ăn tiêu biểu: Bò luộc cuốn bánh tráng, bò tơ nướng y",
+    ],
+  },
+  {
+    id: "art-5",
+    slug: "cu-mi-hap-nuoc-cot-dua-mon-an-khang-chien",
+    title: "CỦ MÌ NƯỚC CỐT DỪA — TỪ MÓN ĂN KHÁNG CHIẾN ĐẾN ĐẶC SẢN NỨC TIẾNG",
+    subtitle:
+      "Món ăn thắm đượm tình đồng chí dưới hầm sâu nay là kỷ niệm ngọt ngào khó quên của du khách",
+    category: "cuisine",
+    categoryName: "Ẩm thực & Đặc sản",
+    summary:
+      "Trong những năm tháng gian khổ chống giặc, củ khoai mì là lương thực chính nuôi sống chiến sĩ. Ngày nay, củ mì hấp nước cốt dừa chấm muối mè là món quà không thể thiếu của An Nhơn Tây.",
+    content: [
+      "Trong những năm tháng kháng chiến gian khổ, khi nguồn lương thực khan hiếm, khoai mì (củ mì) trở thành nguồn thực phẩm quan trọng, góp phần nuôi sống quân và dân An Nhơn Tây. Loại củ dân dã này gắn liền với ký ức về những bữa ăn đạm bạc nhưng đong đầy tinh thần vượt khó của người dân vùng đất thép.",
+      "Từ nguyên liệu quen thuộc ấy, người dân đã chế biến thành nhiều món ăn giản dị như khoai mì luộc chấm muối mè, khoai mì hấp lá dứa hay khoai mì hấp nước cốt dừa. Mỗi cách chế biến đều làm nổi bật vị bùi, thơm và độ dẻo đặc trưng của củ mì.",
+      "Ngày nay, khi tham quan địa đạo Bến Dược hay Bến Đình, du khách có thể thưởng thức món khoai mì luộc nóng hổi, gợi nhớ những bữa ăn thời kháng chiến. Bên cạnh đó, khoai mì hấp nước cốt dừa cũng là một cách thưởng thức hấp dẫn, kết hợp vị bùi của khoai mì với vị béo thơm của dừa; món ăn có thể dùng kèm muối mè để tăng thêm hương vị.",
+      "Sự hòa quyện giữa vị bùi dẻo của khoai mì, vị béo của nước cốt dừa và chút mặn thơm của muối mè tạo nên nét hấp dẫn mộc mạc của món ăn đồng quê Nam Bộ.",
+      "Không cầu kỳ về nguyên liệu hay cách chế biến, củ mì An Nhơn Tây ngày nay không chỉ là món ăn dân dã mà còn gợi nhắc một thời gian khó, thể hiện sức sống bền bỉ và tinh thần vượt lên gian khổ của quân dân vùng đất thép.",
+    ],
+    coverImage: "/CuChi/assets/aistudio/media_articles/media5.png",
+    imageCaption: "Củ mì dẻo bùi hấp nóng hổi chấm muối mè vừng thơm nức mũi",
+    imageCredit: "Khu Di tích Địa đạo An Nhơn Tây",
+    author: "Nguyễn Thị Quỳnh Như (Lớp 12A5)",
+    sources: [OFFICIAL_SOURCES[4]],
+    tags: ["Khoai mì", "Ẩm thực kháng chiến", "Muối mè", "Nước cốt dừa"],
+    status: "verified",
+    updatedAt: "2026-10-16",
+    featured: false,
+    highlights: [
+      "Ý nghĩa: Lương thực cứu đói cách mạng thời chiến tranh",
+      "Cách chế biến: Hấp cùng nước cốt dừa tươi và lá dứa thơm",
+      "Gia vị kèm theo: Muối mè vừng rang vàng",
+    ],
+  },
+  {
+    id: "art-6",
+    slug: "nong-trang-xanh-green-noen-va-du-lich-sinh-thai",
+    title: "NÔNG TRANG XANH GREEN NOEN — MẢNH XANH NÔNG NGHIỆP AN NHƠN TÂY",
+    subtitle:
+      "Điểm hẹn sinh thái ngập tràn sắc hoa, nấm ăn công nghệ cao và trang trại dê cừu thân thiện",
+    category: "nature",
+    categoryName: "Thiên nhiên & Cảnh quan",
+    summary:
+      "Nằm tại ấp Bến Đinh, xã An Nhơn Tây, Nông trang Xanh Green Noen là mô hình trang trại nông nghiệp công nghệ cao kết hợp du lịch trải nghiệm sinh thái trong lành bậc nhất An Nhơn Tây.",
+    content: [
+      "Tọa lạc tại xã An Nhơn Tây, An Nhơn Tây, Nông trang Xanh Green Noen là mô hình kết hợp giữa sản xuất nông nghiệp sạch, chăn nuôi và du lịch sinh thái. Được hình thành từ năm 2010, nông trang phát triển theo định hướng tham khảo các mô hình trang trại của Nhật Bản và Hàn Quốc, mang đến không gian xanh mát, gần gũi với thiên nhiên.",
+      "Nổi bật tại đây là khu trồng nấm với nhiều loại nấm ăn và nấm có giá trị kinh tế như nấm bào ngư, nấm mèo và nấm linh chi. Theo các tài liệu giới thiệu trước đây, nông trang từng phát triển hệ thống 33 nhà trồng nấm, kết hợp với khu chăn nuôi bò sữa và các khu trồng rau sạch, dưa lưới trong nhà màng.",
+      "Không chỉ chú trọng sản xuất nông nghiệp, Green Noen còn mang đến những hoạt động trải nghiệm thú vị cho du khách. Tùy chương trình và điều kiện hoạt động, khách tham quan có thể tìm hiểu quy trình trồng nấm, thu hoạch nông sản, trải nghiệm vắt sữa bò và tiếp xúc với các vật nuôi như dê, cừu, hươu, nai. Những hoạt động này giúp người tham gia hiểu hơn về công việc của người nông dân cũng như quá trình tạo ra các sản phẩm nông nghiệp.",
+      "Với không gian đồng quê rộng rãi, vườn cây, khu chăn nuôi và các phân khu sản xuất, Nông trang Xanh còn là điểm đến phù hợp cho các chuyến tham quan trải nghiệm của gia đình và học sinh. Qua những hoạt động thực tế, các bạn trẻ có cơ hội tìm hiểu về sản xuất nông nghiệp, ý thức bảo vệ môi trường và giá trị của lao động.",
+      "Nông trang Xanh Green Noen góp phần tạo nên nét đa dạng cho du lịch sinh thái An Nhơn Tây, nơi du khách có thể tạm rời xa nhịp sống đô thị để khám phá thiên nhiên và trải nghiệm cuộc sống nông trại.",
+    ],
+    coverImage: "/CuChi/assets/aistudio/media_articles/media6.png",
+    imageCaption:
+      "Thảo nguyên xanh mướt và đàn cừu thân thiện tại Green Noen An Nhơn Tây",
+    imageCredit: "Trung tâm Du lịch Sinh thái An Nhơn Tây",
+    author: "Nguyễn Tường Lam (Lớp 12A5)",
+    locationId: "loc-6",
+    sources: [OFFICIAL_SOURCES[0], OFFICIAL_SOURCES[2]],
+    tags: [
+      "Nông nghiệp xanh",
+      "Green Noen",
+      "An Nhơn Tây",
+      "Trải nghiệm sinh thái",
+    ],
+    status: "verified",
+    updatedAt: "2026-10-15",
+    featured: false,
+    highlights: [
+      "Diện tích: hơn 20 hecta nông nghiệp công nghệ cao",
+      "Đặc điểm: Trồng nấm sạch, vườn dưa lưới và nông trại gia súc thân thiện",
+      "Phù hợp: Du lịch trải nghiệm sinh thái, dã ngoại cuối tuần",
+    ],
+  },
+  {
+    id: "art-7",
+    slug: "vuon-trai-cay-trung-an-ven-song-sai-gon",
+    title: "VƯỜN TRÁI CÂY TRUNG AN — PHÙ SA NẶNG HẠT, TRÁI NGỌT ĐẦU CÀNH",
+    subtitle:
+      "Thưởng ngoạn miệt vườn ven sông với chôm chôm, măng cụt và sầu riêng sum suê trái ngọt",
+    category: "nature",
+    categoryName: "Thiên nhiên & Cảnh quan",
+    summary:
+      "Được bồi đắp bởi nguồn phù sa màu mỡ từ con sông Sài Gòn, xã Trung An sở hữu những miệt vườn cây trái trĩu quả quanh năm, là điểm dã ngoại xanh mát của An Nhơn Tây.",
+    content: [
+      'Chỉ cách trung tâm TP.HCM khoảng 40km, xã Trung An được mệnh danh là "vương quốc cây trái" vùng đất thép. Nhờ hệ thống kênh rạch chằng chịt dẫn nước phù sa từ sông Sài Gòn, đất đai nơi đây luôn trù phú, tươi tốt.',
+      "Mỗi độ từ tháng 5 đến tháng 8 âm lịch hàng năm, Trung An vào mùa trái chín rộ nhất. Những vườn chôm chôm chín đỏ rực cả một góc trời, xen lẫn những chùm măng cụt tím thẫm mọng nước, mít tố nữ thơm lừng và dâu da ngọt thanh.",
+      "Khách tham quan có thể mua vé vào vườn tự tay bẻ trái chín ăn ngay tại gốc, mắc võng nằm dưới bóng râm mát rượi nghe gió sông thổi vào và thưởng thức món gà thả vườn nấu cháo môn lươn đồng đặc sắc.",
+    ],
+    coverImage: "/CuChi/assets/aistudio/media_articles/media7.jpg",
+    imageCaption:
+      "Chùm chôm chôm chín mọng ngọt lịm trong vườn sinh thái Trung An An Nhơn Tây",
+    imageCredit: "Hội Nông dân Xã Trung An, An Nhơn Tây",
+    author: "Phan Khánh Linh (Lớp 12A5)",
+    locationId: "loc-7",
+    sources: [OFFICIAL_SOURCES[0], OFFICIAL_SOURCES[2]],
+    tags: ["Vườn trái cây", "Trung An", "Sông Sài Gòn", "Miệt vườn Nam Bộ"],
+    status: "verified",
+    updatedAt: "2026-10-14",
+    featured: false,
+    highlights: [
+      "Thời điểm lý tưởng: Tháng 5 – Tháng 8 (mùa trái cây chín rộ)",
+      "Loại quả chủ lực: Măng cụt, chôm chôm, dâu da, mít nghệ",
+      "Trải nghiệm: Hái trái tại vườn, thưởng thức ẩm thực đồng quê",
+    ],
+  },
+  {
+    id: "art-8",
+    slug: "lang-nghe-dan-lat-may-tre-thai-my",
+    title: "LÀNG NGHỀ ĐAN LÁT THÁI MỸ — TÀI HOA BÀN TAY NGHỆ NHÂN",
+    subtitle: "Nghề thủ công mỹ nghệ mộc mạc gìn giữ cốt cách thôn dã Nam Bộ",
+    category: "culture",
+    categoryName: "Văn hóa & Đời sống",
+    summary:
+      "Xã Thái Mỹ nằm ở vùng giáp ranh tỉnh Tây Ninh, nổi tiếng với nghề đan lát mây tre lá truyền thống. Từ những nan tre mộc mạc, bàn tay nghệ nhân tạo nên những sản phẩm gia dụng và mỹ nghệ tinh xảo.",
+    content: [
+      "Nghề đan lát ở Thái Mỹ đã có từ thế kỷ 19, gắn liền với cuộc sống mưu sinh của nhiều thế hệ nông dân. Từ cọng tre, cọng trúc, sợi mây lấy từ rừng gò, người thợ Thái Mỹ đã khéo léo chuốt vót, phơi nắng rồi đan thành thúng, mủng, xảo, bồ, rế, giỏ xách.",
+      "Trong thời kỳ kháng chiến, người thợ đan lát Thái Mỹ còn bí mật đan những chiếc giỏ ngụy trang, phên tre gia cố vách hầm địa đạo giúp bộ đội ẩn nấp an toàn.",
+      "Ngày nay, sản phẩm đan lát Thái Mỹ không chỉ phục vụ đời sống nông nghiệp mà đã vươn lên thành hàng thủ công mỹ nghệ trang trí nội thất cao cấp và đồ lưu niệm cho du khách quốc tế.",
+    ],
+    coverImage: "/CuChi/assets/aistudio/media_articles/media8.jpg",
+    imageCaption:
+      "Sản phẩm mây tre đan lát thủ công tinh tế mộc mạc tại xã Thái Mỹ",
+    imageCredit: "UBND Xã Thái Mỹ, An Nhơn Tây",
+    author: "Nguyễn Tường Lam (Lớp 12A5)",
+    locationId: "loc-5",
+    sources: [OFFICIAL_SOURCES[0]],
+    tags: ["Đan lát", "Thái Mỹ", "Mây tre đan", "Thủ công mỹ nghệ"],
+    status: "verified",
+    updatedAt: "2026-10-12",
+    featured: false,
+    highlights: [
+      "Nguyên liệu chính: Tre gai, trúc, mây rừng tự nhiên",
+      "Sản phẩm tiêu biểu: Thúng, bồ, xảo mây tre, đèn thủ công mỹ nghệ",
+      "Ý nghĩa: Lưu giữ bản sắc văn hóa làng quê Nam Bộ",
+    ],
+  },
+];
+
+export const INITIAL_LOCATIONS: LocationPoint[] = [
+  {
+    id: "loc-1",
+    name: "Địa đạo Bến Dược An Nhơn Tây",
+    category: "history",
+    categoryName: "Lịch sử & Di tích",
+    shortDescription:
+      "Căn cứ Khu ủy và Bộ Tư lệnh Quân khu Sài Gòn - Gia Định với đường hầm nguyên bản.",
+    fullDescription:
+      "Địa đạo Bến Dược là khu căn cứ đầu não được phục dựng và bảo tồn nguyên trạng. Nơi đây tái hiện chân thực đời sống sinh hoạt, cứu chữa thương binh và hội họp dưới lòng đất kiên cố.",
+    lat: 11.1444,
+    lng: 106.4631,
+    address: "Ấp Phú Hiệp, Xã Phú Mỹ Hưng, Huyện An Nhơn Tây, TP. Hồ Chí Minh",
+    coverImage: "/CuChi/assets/aistudio/media_articles/media1.jpg",
+    openingHours: "07:00 – 17:00 hằng ngày",
+    ticketPrice: "35.000 VNĐ (Khách Việt Nam) / 125.000 VNĐ (Khách quốc tế)",
+    sources: [OFFICIAL_SOURCES[1], OFFICIAL_SOURCES[3]],
+    verifiedDate: "2026-10-18",
+    status: "verified",
+    articleSlug: "dia-dao-cu-chi-huyen-thoai-dat-thep",
+  },
+  {
+    id: "loc-2",
+    name: "Đền Tưởng niệm Liệt sĩ Bến Dược",
+    category: "history",
+    categoryName: "Lịch sử & Di tích",
+    shortDescription:
+      "Đền thiêng khắc tên 44.752 liệt sĩ hy sinh trên chiến trường Sài Gòn - Chợ Lớn - Gia Định.",
+    fullDescription:
+      "Công trình kiến trúc tưởng niệm tôn nghiêm với cổng tam quan, nhà bia khắc văn bia của cố Giáo sư Trần Văn Giàu và tháp 9 tầng cao 39m vút lên trời xanh.",
+    lat: 11.1462,
+    lng: 106.4645,
+    address:
+      "Bên bờ sông Sài Gòn, Xã Phú Mỹ Hưng, Huyện An Nhơn Tây, TP. Hồ Chí Minh",
+    coverImage: "/CuChi/assets/aistudio/media_articles/media2.jpg",
+    openingHours: "07:30 – 17:00 hằng ngày",
+    ticketPrice: "Miễn phí vào viếng đền",
+    sources: [OFFICIAL_SOURCES[1]],
+    verifiedDate: "2026-10-18",
+    status: "verified",
+    articleSlug: "den-tuong-niem-liet-si-ben-duoc",
+  },
+  {
+    id: "loc-3",
+    name: "Địa đạo Bến Đình An Nhơn Tây",
+    category: "history",
+    categoryName: "Lịch sử & Di tích",
+    shortDescription:
+      "Căn cứ Huyện ủy An Nhơn Tây nằm bên sông Sài Gòn, gần trung tâm thành phố hơn.",
+    fullDescription:
+      "Nằm tại xã Nhuận Đức, Bến Đình là căn cứ của Huyện ủy An Nhơn Tây trong những năm tháng chống càn quét khốc liệt. Nơi đây có trường bắn thể thao quốc phòng và hệ thống bẫy hầm phong phú.",
+    lat: 11.0561,
+    lng: 106.5273,
+    address:
+      "Xã Nhuận Đức, Huyện An Nhơn Tây, TP. Hồ Chí Minh (Cách Bến Dược khoảng 13km)",
+    coverImage: "/CuChi/assets/aistudio/media_articles/media3.jpg",
+    openingHours: "07:30 – 17:00 hằng ngày",
+    ticketPrice: "35.000 VNĐ / vé tham quan",
+    sources: [OFFICIAL_SOURCES[1]],
+    verifiedDate: "2026-10-18",
+    status: "verified",
+    articleSlug: "dia-dao-cu-chi-huyen-thoai-dat-thep",
+  },
+  {
+    id: "loc-4",
+    name: "Làng nghề Bánh tráng Phú Hòa Đông",
+    category: "culture",
+    categoryName: "Văn hóa & Làng nghề",
+    shortDescription:
+      "Làng nghề bánh tráng thủ công trăm năm nổi tiếng dẻo thơm khắp cả nước.",
+    fullDescription:
+      "Tập trung hàng trăm hộ gia đình làm nghề tráng bánh truyền thống kết hợp công nghệ hiện đại. Du khách có thể tận mắt xem và thử tự tay tráng bánh.",
+    lat: 11.0542,
+    lng: 106.5925,
+    address: "Tỉnh lộ 15, Xã Phú Hòa Đông, Huyện An Nhơn Tây, TP. Hồ Chí Minh",
+    coverImage: "/CuChi/assets/aistudio/media_articles/media4.jpg",
+    openingHours: "06:00 – 18:00 hằng ngày",
+    ticketPrice: "Miễn phí tham quan lò bánh",
+    sources: [OFFICIAL_SOURCES[0], OFFICIAL_SOURCES[2]],
+    verifiedDate: "2026-10-17",
+    status: "verified",
+    articleSlug: "lang-banh-trang-phu-hoa-dong",
+  },
+  {
+    id: "loc-5",
+    name: "Làng nghề Mây tre đan Thái Mỹ",
+    category: "culture",
+    categoryName: "Văn hóa & Làng nghề",
+    shortDescription:
+      "Làng nghề đan lát thủ công mỹ nghệ mộc mạc giàu truyền thống.",
+    fullDescription:
+      "Nơi sản xuất các vật dụng tre nứa tinh xảo từ bàn tay khéo léo của các nghệ nhân cao niên xã Thái Mỹ.",
+    lat: 10.9835,
+    lng: 106.4217,
+    address: "Xã Thái Mỹ, Huyện An Nhơn Tây, TP. Hồ Chí Minh",
+    coverImage: "/CuChi/assets/aistudio/media_articles/media5.png",
+    openingHours: "08:00 – 17:00 hằng ngày",
+    ticketPrice: "Miễn phí tham quan",
+    sources: [OFFICIAL_SOURCES[0]],
+    verifiedDate: "2026-10-17",
+    status: "verified",
+    articleSlug: "lang-nghe-dan-lat-may-tre-thai-my",
+  },
+  {
+    id: "loc-6",
+    name: "Nông trang Xanh Green Noen",
+    category: "nature",
+    categoryName: "Thiên nhiên & Sinh thái",
+    shortDescription:
+      "Trang trại nông nghiệp hữu cơ công nghệ cao kết hợp dã ngoại sinh thái.",
+    fullDescription:
+      "Trải rộng hơn 20 hecta với khu nuôi trồng nấm ăn, vườn dưa lưới mát lành, đồi cừu xinh xắn và các hoạt động trải nghiệm làm nông dân thực thụ.",
+    lat: 11.1092,
+    lng: 106.5188,
+    address: "Ấp Bến Đinh, Xã An Nhơn Tây, Huyện An Nhơn Tây, TP. Hồ Chí Minh",
+    coverImage: "/CuChi/assets/aistudio/media_articles/media6.png",
+    openingHours: "08:00 – 17:30",
+    ticketPrice: "50.000 VNĐ / Người lớn",
+    sources: [OFFICIAL_SOURCES[0], OFFICIAL_SOURCES[2]],
+    verifiedDate: "2026-10-18",
+    status: "verified",
+    articleSlug: "nong-trang-xanh-green-noen-va-du-lich-sinh-thai",
+  },
+  {
+    id: "loc-7",
+    name: "Vườn cây ăn trái Trung An",
+    category: "nature",
+    categoryName: "Thiên nhiên & Sinh thái",
+    shortDescription:
+      "Vựa trái cây miệt vườn ven sông Sài Gòn với chôm chôm, măng cụt trĩu cành.",
+    fullDescription:
+      "Khu vực tập trung nhiều nhà vườn sinh thái thoáng mát đón gió sông, nơi du khách vừa thưởng thức trái chín vừa đắm chìm trong không gian thanh bình.",
+    lat: 11.0664,
+    lng: 106.6358,
+    address: "Đường Sông Lu, Xã Trung An, Huyện An Nhơn Tây, TP. Hồ Chí Minh",
+    coverImage: "/CuChi/assets/aistudio/media_articles/media7.jpg",
+    openingHours: "07:00 – 18:00",
+    ticketPrice: "30.000 – 50.000 VNĐ (tùy mùa vụ và nhà vườn)",
+    sources: [OFFICIAL_SOURCES[0], OFFICIAL_SOURCES[2]],
+    verifiedDate: "2026-10-18",
+    status: "verified",
+    articleSlug: "vuon-trai-cay-trung-an-ven-song-sai-gon",
+  },
+  {
+    id: "loc-8",
+    name: "Quán Bò Tơ Xuân Đào An Nhơn Tây",
+    category: "cuisine",
+    categoryName: "Ẩm thực & Đặc sản",
+    shortDescription:
+      "Địa chỉ ẩm thực bò tơ An Nhơn Tây gia truyền nổi danh dọc tuyến Quốc lộ 22.",
+    fullDescription:
+      "Nơi phục vụ các món bò tơ luộc cuốn rau rừng, bò nướng y than hoa, lẩu bò tơ thơm lừng với chất lượng thịt bò mềm ngọt chuẩn vị truyền thống.",
+    lat: 10.9702,
+    lng: 106.5054,
+    address:
+      "Khu phố 2, Quốc lộ 22, Thị trấn An Nhơn Tây, Huyện An Nhơn Tây, TP. Hồ Chí Minh",
+    coverImage: "/CuChi/assets/aistudio/media_articles/media8.jpg",
+    openingHours: "08:30 – 21:00 hằng ngày",
+    ticketPrice: "150.000 – 300.000 VNĐ / người",
+    sources: [OFFICIAL_SOURCES[2]],
+    verifiedDate: "2026-10-18",
+    status: "verified",
+    articleSlug: "dac-san-am-thuc-bo-to-cu-chi",
+  },
+];
+
+export const INITIAL_MEDIA_GALLERY: MediaItem[] = [
+  {
+    id: "med-1",
+    title: "Cửa hầm bí mật Địa đạo An Nhơn Tây",
+    url: "/CuChi/assets/aistudio/media_articles/media1.jpg",
+    type: "image",
+    category: "Lịch sử",
+    caption:
+      "Du khách trải nghiệm khám phá cửa hầm ngụy trang tinh vi tại Địa đạo Bến Dược",
+    source: "Tư liệu Ban Quản lý Khu Di tích Lịch sử Địa đạo An Nhơn Tây",
+    credit: "Khu Di tích Địa đạo An Nhơn Tây",
+    verifiedDate: "2026-10-18",
+  },
+  {
+    id: "med-2",
+    title: "Toàn cảnh Đền Bến Dược bên sông Sài Gòn",
+    url: "/CuChi/assets/aistudio/media_articles/media2.jpg",
+    type: "image",
+    category: "Lịch sử",
+    caption:
+      "Kiến trúc đền tưởng niệm uy nghiêm với ngói đỏ truyền thống và cây xanh rợp bóng",
+    source: "Sở Du lịch Thành phố Hồ Chí Minh",
+    credit: "Visit HCMC",
+    verifiedDate: "2026-10-18",
+  },
+  {
+    id: "med-3",
+    title: "Phơi bánh tráng tại Phú Hòa Đông",
+    url: "/CuChi/assets/aistudio/media_articles/media3.jpg",
+    type: "image",
+    category: "Văn hóa",
+    caption: "Những liếp bánh tráng phơi nối dài dưới nắng vàng ngoại ô An Nhơn Tây",
+    source: "Hội Nông dân Xã Phú Hòa Đông",
+    credit: "UBND Xã Phú Hòa Đông",
+    verifiedDate: "2026-10-17",
+  },
+  {
+    id: "med-4",
+    title: "Thịt bò tơ cuốn bánh tráng rau rừng",
+    url: "/CuChi/assets/aistudio/media_articles/media4.jpg",
+    type: "image",
+    category: "Ẩm thực",
+    caption:
+      "Đĩa bò tơ cuốn bánh tráng kèm rau sông An Nhơn Tây và chén mắm nêm thơm nồng",
+    source: "Hiệp hội Ẩm thực TP. Hồ Chí Minh",
+    credit: "Sở Du lịch TP.HCM",
+    verifiedDate: "2026-10-18",
+  },
+  {
+    id: "med-5",
+    title: "Củ mì luộc chấm muối mè kháng chiến",
+    url: "/CuChi/assets/aistudio/media_articles/media5.png",
+    type: "image",
+    category: "Ẩm thực",
+    caption: "Món củ mì hấp nước cốt dừa dân dã nhưng đậm sâu ký ức lịch sử",
+    source: "Khu Di tích Địa đạo An Nhơn Tây",
+    credit: "Khu Di tích An Nhơn Tây",
+    verifiedDate: "2026-10-16",
+  },
+  {
+    id: "med-6",
+    title: "Nông trại sinh thái Green Noen",
+    url: "/CuChi/assets/aistudio/media_articles/media6.png",
+    type: "image",
+    category: "Thiên nhiên",
+    caption:
+      "Cảnh quan thảo nguyên thanh bình cùng đàn dê cừu tại Green Noen An Nhơn Tây",
+    source: "Nông trang Xanh Green Noen",
+    credit: "Ban Quản trị Green Noen",
+    verifiedDate: "2026-10-15",
+  },
+  {
+    id: "med-7",
+    title: "Miệt vườn cây trái Trung An trĩu cành",
+    url: "/CuChi/assets/aistudio/media_articles/media7.jpg",
+    type: "image",
+    category: "Thiên nhiên",
+    caption: "Vườn chôm chôm chín đỏ rực đón du khách trải nghiệm ngày hè",
+    source: "Trung tâm Khuyến nông An Nhơn Tây",
+    credit: "Hội Làm vườn Xã Trung An",
+    verifiedDate: "2026-10-18",
+  },
+  {
+    id: "med-8",
+    title: "Sản phẩm mây tre đan lát mỹ nghệ Thái Mỹ",
+    url: "/CuChi/assets/aistudio/media_articles/media8.jpg",
+    type: "image",
+    category: "Văn hóa",
+    caption:
+      "Các sản phẩm mây tre thủ công tinh xảo của nghệ nhân lão làng Thái Mỹ",
+    source: "Hợp tác xã Mây Tre Thái Mỹ",
+    credit: "UBND Xã Thái Mỹ",
+    verifiedDate: "2026-10-17",
+  },
+];
+
+export const CLASS_12A5_MEMBERS: TeamMember[] = [
+  {
+    id: 1,
+    name: "Trần Đức Lương",
+    role: "Trưởng nhóm & Nghiên cứu Lịch sử - Di tích",
+    bio: "",
+    tasks: [
+      "",
+      "",
+      "",
+    ],
+    img: "/CuChi/assets/aistudio/luong_63bc9be9.JPG",
+  },
+  {
+    id: 2,
+    name: "Trần Hà Phụng Nhi",
+    role: "Biên tập viên Văn hóa & Ẩm thực truyền thống",
+    bio: "",
+    tasks: [
+      "",
+      "",
+      "",
+    ],
+    img: "/CuChi/assets/aistudio/nhi.jpg",
+  },
+  {
+    id: 3,
+    name: "Phan Khánh Linh",
+    role: "Chuyên viên Bản đồ số & Tọa độ địa lý",
+    bio: "",
+    tasks: [
+      "",
+      "",
+      "",
+    ],
+    img: "/CuChi/assets/aistudio/khanh_linh.jpg",
+  },
+  {
+    id: 4,
+    name: "Nguyễn Tường Lam",
+    role: "Thiết kế Giao diện Retro Editorial & Thư viện Media",
+    bio: "",
+    tasks: [
+      "",
+      "",
+      "",
+    ],
+    img: "/CuChi/assets/aistudio/tuong_lam.jpg",
+  },
+  {
+    id: 5,
+    name: "Nguyễn Thị Quỳnh Như",
+    role: "Kiểm định Tư liệu & Tích hợp Trợ lý AI",
+    bio: "",
+    tasks: [
+      "",
+      "",
+      "",
+    ],
+    img: "/CuChi/assets/aistudio/quynh_nhu.jpg",
+  },
+  {
+    id: 6,
+    name: "Trần Anh",
+    role: "Lập trình",
+    bio: "",
+    tasks: [
+      "",
+      "",
+      "",
+    ],
+    img: "/CuChi/assets/aistudio/tran_anh.jpg",
+  },
+];
+
+export const TIMELINE_DATA: HistoricalEvent[] = [
+  {
+    year: '1948',
+    title: 'Khởi nguồn xây dựng hệ thống địa đạo',
+    description: 'Phong trào đào hầm bí mật nhen nhóm và phát triển mạnh mẽ, đặt nền móng cho hệ thống địa đạo chiến đấu kiên cường tại An Nhơn Tây và vùng lân cận.',
+    source: 'Lịch sử Di tích Lịch sử Địa đạo Bến Dược'
+  },
+  {
+    year: '1961 - 1965',
+    title: 'Phát triển căn cứ địa đạo Bến Dược',
+    description: 'Hệ thống địa đạo Bến Dược (An Nhơn Tây) được mở rộng liên hoàn, trở thành căn cứ đầu não của Khu ủy và Bộ Tư lệnh Quân khu Sài Gòn - Chợ Lớn - Gia Định.',
+    source: 'Hồ sơ Di tích Lịch sử Ban Quản lý Địa đạo'
+  },
+  {
+    year: '1967',
+    title: 'Tuyên dương danh hiệu Đất Thép Thành Đồng',
+    description: 'Ngày 17/9/1967, Ủy ban Trung ương Mặt trận Dân tộc Giải phóng miền Nam Việt Nam phong tặng vùng đất Củ Chi - An Nhơn Tây danh hiệu vinh dự cao quý cùng Huân chương Thành đồng hạng Nhất.',
+    source: 'Văn kiện Lịch sử Kháng chiến Nam Bộ'
+  },
+  {
+    year: '1993 - 1995',
+    title: 'Khánh thành Đền tưởng niệm liệt sĩ Bến Dược',
+    description: 'Công trình lịch sử - tâm linh quy mô lớn được khánh thành tại ấp Phú Hiệp, xã An Nhơn Tây, khắc ghi danh tính của 44.752 anh hùng liệt sĩ từ mọi miền Tổ quốc.',
+    source: 'Khu Di tích Lịch sử Địa đạo Bến Dược'
+  },
+  {
+    year: '2015',
+    title: 'Xếp hạng Di tích Quốc gia Đặc biệt',
+    description: 'Thủ tướng Chính phủ ký Quyết định xếp hạng Di tích lịch sử Địa đạo Củ Chi (với trung tâm là Địa đạo Bến Dược - An Nhơn Tây) là Di tích Quốc gia Đặc biệt.',
+    source: 'Quyết định số 2367/QĐ-TTg của Thủ tướng Chính phủ'
+  },
+  {
+    year: '2020',
+    title: 'Đạt chuẩn Xã Nông thôn mới nâng cao',
+    description: 'Xã An Nhơn Tây được UBND TP.HCM công nhận đạt chuẩn Xã Nông thôn mới nâng cao, cơ sở hạ tầng giao thông và đời sống nhân dân được nâng chất toàn diện.',
+    source: 'UBND Thành phố Hồ Chí Minh'
+  },
+  {
+    year: '11/11/2022',
+    title: 'Ra mắt Không gian VH Hồ Chí Minh tại Chùa Hoằng Linh',
+    description: 'Một trong những cơ sở Phật giáo đầu tiên trên địa bàn TP.HCM ra mắt Không gian văn hóa Hồ Chí Minh, lan tỏa tinh thần đại đoàn kết dân tộc và tôn giáo.',
+    source: 'Báo Quân khu 7 & Báo Giác Ngộ'
+  },
+  {
+    year: '2024 - 2025',
+    title: 'Đề án sắp xếp, thành lập xã An Nhơn Tây mới',
+    description: 'Phương án sắp xếp ĐVHC của TP.HCM thông qua việc hợp nhất 3 xã An Nhơn Tây, An Phú và Phú Mỹ Hưng với quy mô diện tích 77,70 km² và dân số 40.896 người.',
+    source: 'Phương án sắp xếp ĐVHC cấp xã của UBND TP.HCM'
+  }
+];
+
+export const CUCHI_STATS = {
+  area: "434,77 km²",
+  population: "Gần 500.000 người (Theo Niên giám thống kê TP.HCM)",
+  administrativeUnits: "1 Thị trấn An Nhơn Tây và 20 xã ngoại thành",
+  tunnelLength: "Hơn 250 km đường hầm dưới lòng đất",
+  martyrsHonored: "44.752 Anh hùng Liệt sĩ được ghi danh tại Đền Bến Dược",
+  heroicTitle: "Đất Thép Thành Đồng (Phong tặng 17/9/1967)",
+  specialNationalMonument: "Di tích Quốc gia đặc biệt (Quyết định năm 2015)",
+};
