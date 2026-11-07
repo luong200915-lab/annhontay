@@ -66,7 +66,7 @@ export default function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [adminOpen, setAdminOpen] = useState(false);
   const [isAIOpen, setIsAIOpen] = useState<boolean>(false);
-  const [teamOpen, setTeamOpen] = useState<boolean>(false);
+  const [teamOpen, setTeamOpen] = useState<boolean>(() => typeof window !== "undefined" && new URLSearchParams(window.location.search).get("team") === "1");
   const [isMapOpen, setIsMapOpen] = useState(false); 
 
   const [exploreCategory, setExploreCategory] = useState<

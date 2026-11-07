@@ -28,7 +28,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-6 bg-black/60 backdrop-blur-sm animate-fade-in overflow-y-auto">
-      <div className="overflow-y-auto relative w-full max-w-4xl bg-[#FAF6ED] border-2 border-[#243D2B] rounded-lg shadow-2xl my-auto overflow-hidden max-h-[92vh]  p-10">
+      <div className="overflow-y-auto relative w-full max-w-4xl bg-[#FAF6ED] border-2 border-[#243D2B] rounded-lg shadow-2xl my-auto overflow-hidden max-h-[92vh] p-4 sm:p-6 md:p-10">
         {/* Modal Sticky Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#243D2B] text-[#FAF6ED] text-xs font-mono uppercase tracking-widest mb-3">
@@ -153,11 +153,15 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
 
 
                 {/* Layer 3: Text Content & Footer Meta (relative z-10, stays stationary) */}
-                <div className="relative z-10 p-4 pb-3 flex flex-col justify-end w-full">
+                <div className="relative z-10 px-3 sm:px-4 py-3 flex flex-col justify-end w-full">
                   {/* Member Name */}
                   <h3
-                    className="font-bold text-lg md:text-xl text-white text-center mb-1.5 leading-tight tracking-normal break-words min-h-[3rem] flex items-center justify-center px-1"
-                    style={{ textShadow: "0 2px 4px rgba(0,0,0,0.95), 0 1px 2px rgba(0,0,0,0.9)" }}
+                    className="font-bold text-white text-center mb-1.5 leading-tight tracking-normal whitespace-nowrap min-h-[2.25rem] flex items-center justify-center w-full px-0.5"
+                    style={{
+                      fontSize: "clamp(0.925rem, 1.15vw + 0.45rem, 1.0625rem)",
+                      whiteSpace: "nowrap",
+                      textShadow: "0 2px 4px rgba(0,0,0,0.95), 0 1px 2px rgba(0,0,0,0.9)"
+                    }}
                   >
                     {member.name}
                   </h3>
