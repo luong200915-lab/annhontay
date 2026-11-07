@@ -112,16 +112,33 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete, autost
             </span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-center">
-            {CLASS_12A5_MEMBERS.map((member) => (
-              <div
-                key={member.id}
-                className="bg-[#243D2B]/90 border border-[#617A50]/40 p-2 rounded hover:border-[#C76B45]/70 transition-all"
-              >
-                <div className="text-xs text-[#FAF6ED]/50 font-mono">0{member.id}</div>
-                <div className="text-sm font-semibold text-[#FAF6ED] truncate">{member.name}</div>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-center items-stretch">
+            {CLASS_12A5_MEMBERS.map((member) => {
+              const words = member.name.trim().split(/\s+/);
+              const isMultiLine = words.length >= 3;
+              const splitIdx = Math.floor(words.length / 2);
+              const line1 = isMultiLine ? words.slice(0, splitIdx).join(' ') : member.name;
+              const line2 = isMultiLine ? words.slice(splitIdx).join(' ') : null;
+
+              return (
+                <div
+                  key={member.id}
+                  className="bg-[#243D2B]/90 border border-[#617A50]/40 p-2 rounded hover:border-[#C76B45]/70 transition-all flex flex-col justify-between items-center min-h-[4.75rem]"
+                >
+                  <div className="text-[11px] text-[#FAF6ED]/50 font-mono mb-1">0{member.id}</div>
+                  <div className="text-xs sm:text-[13px] font-semibold text-[#FAF6ED] leading-snug text-center flex-1 flex flex-col justify-center">
+                    {isMultiLine ? (
+                      <>
+                        <span className="block whitespace-nowrap">{line1}</span>
+                        <span className="block whitespace-nowrap">{line2}</span>
+                      </>
+                    ) : (
+                      <span className="block whitespace-nowrap">{line1}</span>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </footer>
       </div>
