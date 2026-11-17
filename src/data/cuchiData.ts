@@ -696,52 +696,70 @@ export const CLASS_12A5_MEMBERS: TeamMember[] = [
 
 export const TIMELINE_DATA: HistoricalEvent[] = [
   {
+    year: '1836',
+    title: 'Xác lập địa danh An Nhơn Tây trong Địa bạ triều Nguyễn',
+    description: 'Dưới triều vua Minh Mạng (năm Minh Mạng thứ 17), đợt đo đạc điền thổ và lập sổ địa bạ Nam Kỳ chính thức ghi nhận địa danh An Nhơn Tây là một thôn thuộc tổng Dương Hòa Trung (sau thuộc tổng Long Tuy Trung), phủ Tân Bình, tỉnh Gia Định.',
+    source: 'Sổ Địa bạ triều Nguyễn năm 1836 (Tài liệu Nghiên cứu Địa bạ Nam Kỳ)'
+  },
+  {
+    year: '1880 - 1944',
+    title: 'Thời kỳ thuộc địa & Khơi nguồn ngọn lửa cách mạng',
+    description: 'Thôn An Nhơn Tây lần lượt thuộc hạt Sài Gòn rồi quận Hóc Môn (tỉnh Gia Định). Người dân vùng đất thuần nông kiên cường, giàu lòng yêu nước, sớm tiếp thu ánh sáng cách mạng và che chở cho các cơ sở cách mạng tiền khởi nghĩa.',
+    source: 'Địa chí Văn hóa Lịch sử Sài Gòn - Gia Định'
+  },
+  {
     year: '1948',
-    title: 'Khởi nguồn xây dựng hệ thống địa đạo',
-    description: 'Phong trào đào hầm bí mật nhen nhóm và phát triển mạnh mẽ, đặt nền móng cho hệ thống địa đạo chiến đấu kiên cường tại An Nhơn Tây và vùng lân cận.',
-    source: 'Lịch sử Di tích Lịch sử Địa đạo Bến Dược'
+    title: 'Khởi nguồn xây dựng hệ thống địa đạo kháng chiến chống Pháp',
+    description: 'Phong trào đào hầm bí mật nhen nhóm và phát triển mạnh mẽ tại vùng đất Củ Chi - An Nhơn Tây. Các đoạn công sự, hầm ngầm phân tán từng bước được nối liền liên hoàn, trở thành căn cứ vững chắc bảo vệ an toàn cho cán bộ, chiến sĩ.',
+    source: 'Lịch sử Di tích Lịch sử Địa đạo Củ Chi - Ban Quản lý Di tích'
   },
   {
     year: '1961 - 1965',
-    title: 'Phát triển căn cứ địa đạo Bến Dược',
-    description: 'Hệ thống địa đạo Bến Dược (An Nhơn Tây) được mở rộng liên hoàn, trở thành căn cứ đầu não của Khu ủy và Bộ Tư lệnh Quân khu Sài Gòn - Chợ Lớn - Gia Định.',
-    source: 'Hồ sơ Di tích Lịch sử Ban Quản lý Địa đạo'
+    title: 'Phát triển Căn cứ đầu não Địa đạo Bến Dược kháng chiến chống Mỹ',
+    description: 'Sau phong trào Đồng Khởi năm 1960, vùng giải phóng Bắc Củ Chi được mở rộng liên hoàn. Địa đạo Bến Dược (An Nhơn Tây) được xây dựng kiên cố 3 tầng ngầm, trở thành căn cứ đầu não của Khu ủy và Bộ Tư lệnh Quân khu Sài Gòn - Chợ Lớn - Gia Định.',
+    source: 'Hồ sơ Di tích Lịch sử Căn cứ Khu ủy Sài Gòn - Gia Định'
   },
   {
-    year: '1967',
-    title: 'Tuyên dương danh hiệu Đất Thép Thành Đồng',
-    description: 'Ngày 17/9/1967, Ủy ban Trung ương Mặt trận Dân tộc Giải phóng miền Nam Việt Nam phong tặng vùng đất Củ Chi - An Nhơn Tây danh hiệu vinh dự cao quý cùng Huân chương Thành đồng hạng Nhất.',
-    source: 'Văn kiện Lịch sử Kháng chiến Nam Bộ'
+    year: '17/9/1967',
+    title: 'Tuyên dương danh hiệu vẻ vang "Đất Thép Thành Đồng"',
+    description: 'Tại Đại hội Anh hùng và Chiến sĩ thi đua toàn miền Nam lần thứ II, Ủy ban Trung ương Mặt trận Dân tộc Giải phóng miền Nam Việt Nam long trọng phong tặng quân dân Củ Chi - An Nhơn Tây danh hiệu vinh dự cao quý cùng Huân chương Thành đồng hạng Nhất.',
+    source: 'Văn kiện Lịch sử Kháng chiến Nam Bộ & Báo Quân Giải phóng'
+  },
+  {
+    year: '1975 - 1976',
+    title: 'Hợp nhất huyện Củ Chi trực thuộc TP. Hồ Chí Minh',
+    description: 'Sau ngày 30/4/1975 thống nhất non sông, quận Phú Hòa (Bình Dương) và quận Củ Chi (Hậu Nghĩa) hợp nhất thành huyện Củ Chi trực thuộc TP.HCM. Xã An Nhơn Tây chính thức là đơn vị hành chính cấp xã của TP.HCM, bước vào công cuộc rà phá bom mìn và kiến thiết quê hương.',
+    source: 'Lịch sử Hành chính Thành phố Hồ Chí Minh'
   },
   {
     year: '1993 - 1995',
     title: 'Khánh thành Đền tưởng niệm liệt sĩ Bến Dược',
-    description: 'Công trình lịch sử - tâm linh quy mô lớn được khánh thành tại ấp Phú Hiệp, xã An Nhơn Tây, khắc ghi danh tính của 44.752 anh hùng liệt sĩ từ mọi miền Tổ quốc.',
+    description: 'Công trình lịch sử - văn hóa - tâm linh quy mô lớn được khởi công xây dựng và long trọng khánh thành tại ấp Phú Hiệp, xã An Nhơn Tây, đời đời khắc ghi danh tính 44.752 anh hùng liệt sĩ đã hy sinh vì nền độc lập, tự do của Tổ quốc.',
     source: 'Khu Di tích Lịch sử Địa đạo Bến Dược'
   },
   {
-    year: '2015',
+    year: '23/12/2015',
     title: 'Xếp hạng Di tích Quốc gia Đặc biệt',
-    description: 'Thủ tướng Chính phủ ký Quyết định xếp hạng Di tích lịch sử Địa đạo Củ Chi (với trung tâm là Địa đạo Bến Dược - An Nhơn Tây) là Di tích Quốc gia Đặc biệt.',
+    description: 'Thủ tướng Chính phủ ký Quyết định số 2367/QĐ-TTg xếp hạng Di tích lịch sử Địa đạo Củ Chi (với trung tâm bảo tồn trọng điểm là Địa đạo Bến Dược - An Nhơn Tây) là Di tích Quốc gia Đặc biệt, khẳng định giá trị lịch sử và quân sự vô giá.',
     source: 'Quyết định số 2367/QĐ-TTg của Thủ tướng Chính phủ'
   },
   {
     year: '2020',
     title: 'Đạt chuẩn Xã Nông thôn mới nâng cao',
-    description: 'Xã An Nhơn Tây được UBND TP.HCM công nhận đạt chuẩn Xã Nông thôn mới nâng cao, cơ sở hạ tầng giao thông và đời sống nhân dân được nâng chất toàn diện.',
-    source: 'UBND Thành phố Hồ Chí Minh'
+    description: 'Xã An Nhơn Tây được UBND TP.HCM công nhận đạt chuẩn Xã Nông thôn mới nâng cao. Cơ sở hạ tầng giao thông nhựa hóa đồng bộ, trường học trạm y tế chuẩn hóa, đời sống vật chất và tinh thần của người dân được nâng cao toàn diện.',
+    source: 'Quyết định công nhận của UBND Thành phố Hồ Chí Minh'
   },
   {
     year: '11/11/2022',
     title: 'Ra mắt Không gian VH Hồ Chí Minh tại Chùa Hoằng Linh',
-    description: 'Một trong những cơ sở Phật giáo đầu tiên trên địa bàn TP.HCM ra mắt Không gian văn hóa Hồ Chí Minh, lan tỏa tinh thần đại đoàn kết dân tộc và tôn giáo.',
-    source: 'Báo Quân khu 7 & Báo Giác Ngộ'
+    description: 'Chùa Hoằng Linh (ấp Chợ Củ, xã An Nhơn Tây) là một trong những cơ sở Phật giáo đầu tiên trên địa bàn TP.HCM ra mắt Không gian văn hóa Hồ Chí Minh, lan tỏa sâu rộng tinh thần đại đoàn kết dân tộc, gắn kết đạo pháp với tình yêu Tổ quốc.',
+    source: 'Báo Quân khu 7 & Báo Giác Ngộ TP.HCM'
   },
   {
     year: '2024 - 2025',
-    title: 'Đề án sắp xếp, thành lập xã An Nhơn Tây mới',
-    description: 'Phương án sắp xếp ĐVHC của TP.HCM thông qua việc hợp nhất 3 xã An Nhơn Tây, An Phú và Phú Mỹ Hưng với quy mô diện tích 77,70 km² và dân số 40.896 người.',
-    source: 'Phương án sắp xếp ĐVHC cấp xã của UBND TP.HCM'
+    title: 'Nghị quyết thành lập Xã An Nhơn Tây mới sáp nhập 3 xã',
+    description: 'Thực hiện Nghị quyết số 1685/NQ-UBTVQH15 của Ủy ban Thường vụ Quốc hội về sắp xếp ĐVHC cấp xã tại TP.HCM, chính thức hợp nhất toàn diện 3 xã An Nhơn Tây, An Phú và Phú Mỹ Hưng thành Xã An Nhơn Tây mới với diện tích 77,70 km², dân số 40.896 người và 14 ấp, mở ra không gian phát triển đột phá.',
+    source: 'Nghị quyết số 1685/NQ-UBTVQH15 & Đề án sắp xếp ĐVHC của UBND TP.HCM'
   }
 ];
 

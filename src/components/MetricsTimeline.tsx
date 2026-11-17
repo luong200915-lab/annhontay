@@ -21,7 +21,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 export const MetricSection: React.FC = () => {
-  const INITIAL_TIMELINE_COUNT = 1;
+  const INITIAL_TIMELINE_COUNT = 3;
   const [visibleTimelineCount, setVisibleTimelineCount] = useState<number>(
     INITIAL_TIMELINE_COUNT,
   );
@@ -42,10 +42,10 @@ export const MetricSection: React.FC = () => {
     } else {
       // Chưa hiện hết -> Mở thêm 1 mốc và cuộn xuống 180px để thấy nội dung mới
       setVisibleTimelineCount((prev) =>
-        Math.min(prev + 1, TIMELINE_DATA.length),
+        Math.min(prev + 3, TIMELINE_DATA.length),
       );
       setTimeout(() => {
-        window.scrollBy({ top: 180, behavior: "smooth" });
+        window.scrollBy({ top: 240, behavior: "smooth" });
       }, 80);
     }
   };
