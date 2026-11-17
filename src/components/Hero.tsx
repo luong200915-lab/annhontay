@@ -135,11 +135,34 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
             <div className="lg:col-start-3 lg:col-span-8 space-y-6">
               <p className="anim-desc font-body text-base md:text-lg text-white/95 leading-relaxed text-center drop-shadow-md">
-                Nằm ở cửa ngõ Tây Bắc Thành phố Hồ Chí Minh, An Nhơn Tây là bản trường
-                ca bất tử của lòng dũng cảm với mạng lưới địa đạo dài hơn 250km
-                xuyên lòng đất, đền tưởng niệm linh thiêng bên bờ sông Sài Gòn,
-                làng nghề bánh tráng trăm năm và những vườn cây trái trĩu ngọt phù
-                sa.
+                Xã An Nhơn Tây được chính thức hình thành trên cơ sở sáp nhập các đơn vị hành chính trước đây bao gồm Xã Phú Mỹ Hưng, Xã An Phú, Xã An Nhơn Tây. Nằm ở phía Tây Bắc của Thành phố Hồ Chí Minh, cách phường{' '}
+                <a
+                  href="https://vi.wikipedia.org/wiki/B%C3%ACnh_D%C6%B0%C6%A1ng_(ph%C6%B0%E1%BB%9Dng)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#D9A85B] hover:text-[#FAF6ED] underline underline-offset-4 decoration-[#D9A85B]/60 transition-colors font-medium"
+                >
+                  Bình Dương
+                </a>{' '}
+                khoảng 37 km về phía Tây và cách phường{' '}
+                <a
+                  href="https://vi.wikipedia.org/wiki/S%C3%A0i_G%C3%B2n_(ph%C6%B0%E1%BB%9Dng)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#D9A85B] hover:text-[#FAF6ED] underline underline-offset-4 decoration-[#D9A85B]/60 transition-colors font-medium"
+                >
+                  Sài Gòn
+                </a>{' '}
+                khoảng 47 km về phía Bắc, thuộc khu vực{' '}
+                <a
+                  href="https://vi.wikipedia.org/wiki/C%E1%BB%A7_Chi_(huy%E1%BB%87n)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#D9A85B] hover:text-[#FAF6ED] underline underline-offset-4 decoration-[#D9A85B]/60 transition-colors font-medium"
+                >
+                  Củ Chi
+                </a>{' '}
+                trước đây. Sau khi sáp nhập địa giới hành chính, địa bàn hiện sở hữu diện tích tự nhiên rộng khoảng 77.7 km² với mật độ dân cư đạt mức 526 người/km².
               </p>
             </div>
           </div>
