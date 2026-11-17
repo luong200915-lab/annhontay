@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+﻿import React, { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import { LocationPoint, ContentCategory, AdministrativeUnit34 } from "../types";
 import {
@@ -669,7 +669,6 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                 { id: "history", label: "🏛️ Lịch sử & Di tích" },
                 { id: "culture", label: "🎋 Văn hóa & Làng nghề" },
                 { id: "nature", label: "🌿 Thiên nhiên Sinh thái" },
-                { id: "cuisine", label: "🍲 Ẩm thực Đặc sản" },
               ].map((cat) => (
                 <button
                   key={cat.id}
@@ -729,7 +728,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
               }}
               placeholder={
                 mapMode === "local"
-                  ? "Tìm di tích, đặc sản An Nhơn Tây..."
+                  ? "Tìm di tích, văn hóa An Nhơn Tây..."
                   : "Tìm trong 34 tỉnh/thành 2025..."
               }
               className="w-full bg-[#FAF6ED] text-[#352C24] pl-8 pr-3 py-1.5 text-xs rounded border border-[#352C24]/20 focus:outline-none focus:border-[#243D2B]"

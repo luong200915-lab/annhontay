@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -219,7 +219,7 @@ export default function App() {
                   Bản đồ Hành chính 2025 & Địa Không Gian Lịch Sử
                 </span>
                 <h2 className="font-heading text-4xl md:text-5xl text-[#243D2B] tracking-wide mt-5">
-                  BẢN ĐỒ VĂN HÓA & HÀNH CHÍNH TƯƠNG TÁC
+                  BẢN ĐỒ XÃ AN NHƠN TÂY
                 </h2>
               </div>
               <p className="text-xs md:text-sm text-[#352C24]/75 max-w-md font-body">
