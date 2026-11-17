@@ -696,12 +696,6 @@ export const CLASS_12A5_MEMBERS: TeamMember[] = [
 
 export const TIMELINE_DATA: HistoricalEvent[] = [
   {
-    year: '1836',
-    title: 'Xác lập địa danh An Nhơn Tây trong Địa bạ triều Nguyễn',
-    description: 'Dưới triều vua Minh Mạng (năm Minh Mạng thứ 17), đợt đo đạc điền thổ và lập sổ địa bạ Nam Kỳ chính thức ghi nhận địa danh An Nhơn Tây là một thôn thuộc tổng Dương Hòa Trung (sau thuộc tổng Long Tuy Trung), phủ Tân Bình, tỉnh Gia Định.',
-    source: 'Sổ Địa bạ triều Nguyễn năm 1836 (Tài liệu Nghiên cứu Địa bạ Nam Kỳ)'
-  },
-  {
     year: '1880 - 1944',
     title: 'Thời kỳ thuộc địa & Khơi nguồn ngọn lửa cách mạng',
     description: 'Thôn An Nhơn Tây lần lượt thuộc hạt Sài Gòn rồi quận Hóc Môn (tỉnh Gia Định). Người dân vùng đất thuần nông kiên cường, giàu lòng yêu nước, sớm tiếp thu ánh sáng cách mạng và che chở cho các cơ sở cách mạng tiền khởi nghĩa.',
