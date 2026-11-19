@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { Layers, Shield, Sparkles, Sprout, Landmark } from "lucide-react";
 
 export const OverviewSection: React.FC = () => {
@@ -11,29 +11,129 @@ export const OverviewSection: React.FC = () => {
       id: "soil" as const,
       title: "Đất Thép & Địa Chất",
       icon: Layers,
-      summary: "Tại sao An Nhơn Tây được mệnh danh là Đất Thép?",
+      summary: "Truyền thống lịch sử và đặc điểm địa chất – thổ nhưỡng",
       content: `Địa hình An Nhơn Tây là vùng đồi gò chuyển tiếp từ cao nguyên Đông Nam Bộ xuống đồng bằng Tây Nam Bộ. Tầng đất nơi đây chủ yếu là đất sét pha đá ong (Laterite) và sỏi đỏ phong hóa. Khi ở sâu trong lòng đất có độ ẩm, đất dẻo có thể dùng cuốc chim xắn gọt dễ dàng; nhưng khi tiếp xúc với không khí khô ráo, vách hầm thoát nước và se lại rắn chắc như xi măng đúc. Nhờ đặc tính địa chất độc nhất vô nhị này, hàng trăm km đường hầm địa đạo dù không có bê tông cốt thép vẫn đứng vững trước đạn pháo và bom rải thảm.`,
     },
     {
       id: "geo" as const,
       title: "Vị Trí Cửa Ngõ Tây Bắc",
       icon: Landmark,
-      summary: "Hành lang chiến lược kết nối TP.HCM với Tây Ninh và Long An",
-      content: `Huyện An Nhơn Tây có diện tích 434,77 km², bao gồm 1 thị trấn và 20 xã. Nằm ở bờ hữu ngạn sông Sài Gòn, An Nhơn Tây tiếp giáp tỉnh Bình Dương (Bến Cát, Dầu Tiếng) ở phía Đông, tỉnh Tây Ninh (Trảng Bàng) ở phía Bắc, tỉnh Long An (Đức Hòa) ở phía Tây Nam, và quận 12, huyện Hóc Môn ở phía Nam. Vị trí này biến An Nhơn Tây thành địa bàn chiến lược xung yếu trong mọi thời kỳ lịch sử của Sài Gòn - Gia Định.`,
+      summary: "Vùng đất chiến lược kết nối TP.HCM với khu vực Tây Ninh, thuận lợi phát triển giao thông và liên kết vùng.",
+      content: (
+        <div className="space-y-4">
+          <p className="first-letter:text-4xl first-letter:font-serif first-letter:font-bold first-letter:float-left first-letter:mr-2.5 first-letter:text-[#356B4B]">
+            Xã An Nhơn Tây nằm ở phía Tây Bắc của Thành phố Hồ Chí Minh, cách phường{" "}
+            <a
+              href="https://vi.wikipedia.org/wiki/B%C3%ACnh_D%C6%B0%C6%A1ng_(ph%C6%B0%E1%BB%9Dng)"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#356B4B] hover:text-[#243D2B] font-semibold underline underline-offset-2"
+            >
+              Bình Dương
+            </a>{" "}
+            khoảng 37 km về phía Tây và cách phường{" "}
+            <a
+              href="https://vi.wikipedia.org/wiki/S%C3%A0i_G%C3%B2n_(ph%C6%B0%E1%BB%9Dng)"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#356B4B] hover:text-[#243D2B] font-semibold underline underline-offset-2"
+            >
+              Sài Gòn
+            </a>{" "}
+            khoảng 47 km về phía Bắc, thuộc khu vực{" "}
+            <a
+              href="https://vi.wikipedia.org/wiki/C%E1%BB%A7_Chi_(huy%E1%BB%87n)"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#356B4B] hover:text-[#243D2B] font-semibold underline underline-offset-2"
+            >
+              Củ Chi
+            </a>{" "}
+            trước đây, có vị trí địa lý:
+          </p>
+          <div className="bg-[#FAF6ED] p-4 rounded-xl border border-[#356B4B]/20 space-y-2.5 text-sm sm:text-base">
+            <div className="flex items-start gap-2.5">
+              <span className="text-[#356B4B] font-bold text-lg leading-none mt-0.5">·</span>
+              <span>
+                <strong>Phía Bắc và phía Đông:</strong> giáp với phường Tây Nam với ranh giới là{" "}
+                <a
+                  href="https://vi.wikipedia.org/wiki/S%C3%B4ng_S%C3%A0i_G%C3%B2n"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#356B4B] hover:text-[#243D2B] font-semibold underline underline-offset-2"
+                >
+                  Sông Sài Gòn
+                </a>
+              </span>
+            </div>
+            <div className="flex items-start gap-2.5">
+              <span className="text-[#356B4B] font-bold text-lg leading-none mt-0.5">·</span>
+              <span>
+                <strong>Phía Nam:</strong> giáp với xã{" "}
+                <a
+                  href="https://vi.wikipedia.org/wiki/Nhu%E1%BA%ADn_%C4%90%E1%BB%A9c"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#356B4B] hover:text-[#243D2B] font-semibold underline underline-offset-2"
+                >
+                  Nhuận Đức
+                </a>
+              </span>
+            </div>
+            <div className="flex items-start gap-2.5">
+              <span className="text-[#356B4B] font-bold text-lg leading-none mt-0.5">·</span>
+              <span>
+                <strong>Phía Tây Nam:</strong> giáp với xã{" "}
+                <a
+                  href="https://vi.wikipedia.org/wiki/Th%C3%A1i_M%E1%BB%B9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#356B4B] hover:text-[#243D2B] font-semibold underline underline-offset-2"
+                >
+                  Thái Mỹ
+                </a>
+              </span>
+            </div>
+            <div className="flex items-start gap-2.5">
+              <span className="text-[#356B4B] font-bold text-lg leading-none mt-0.5">·</span>
+              <span>
+                <strong>Phía Tây Bắc:</strong> giáp xã{" "}
+                <a
+                  href="https://vi.wikipedia.org/wiki/H%C6%B0ng_Thu%E1%BA%ADn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#356B4B] hover:text-[#243D2B] font-semibold underline underline-offset-2"
+                >
+                  Hưng Thuận
+                </a>{" "}
+                thuộc tỉnh{" "}
+                <a
+                  href="https://vi.wikipedia.org/wiki/T%C3%A2y_Ninh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#356B4B] hover:text-[#243D2B] font-semibold underline underline-offset-2"
+                >
+                  Tây Ninh
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      ),
     },
     {
       id: "culture" as const,
       title: "Làng Nghề & Di Sản Dân Gian",
       icon: Shield,
       summary: "Hương vị gạo mới và đôi bàn tay khéo léo trăm năm",
-      content: `Văn hóa An Nhơn Tây kết tinh từ nếp sống cần cù, kiên cường của người nông dân Nam Bộ. Nổi tiếng nhất là Làng nghề Bánh tráng Phú Hòa Đông với hơn một thế kỷ đỏ lửa lò tráng bánh, Làng đan lát tre nứa Thái Mỹ, nghề làm mành trúc Tân Thông Hội. Người dân An Nhơn Tây vừa anh dũng trong thời chiến, vừa đôn hậu, hiếu khách và giữ trọn đạo lý Uống nước nhớ nguồn trong thời bình.`,
+      content: `Văn hóa xã An Nhơn Tây (Củ Chi) mang đậm bản sắc vùng miệt vườn Nam Bộ, là sự hòa quyện sâu sắc giữa truyền thống yêu nước kiên cường và nếp sống làng quê chân chất, nghĩa tình. Nơi đây lưu giữ chiều sâu văn hóa lịch sử – tâm linh qua Khu di tích Địa đạo Củ Chi (Bến Dược) và Đền tưởng niệm liệt sĩ Bến Dược, nơi tinh thần "đất thép thành đồng" cùng đạo lý "uống nước nhớ nguồn" luôn được tiếp nối trang nghiêm qua bao thế hệ. Song hành với những giá trị hào hùng ấy là không gian văn hóa dân gian mộc mạc được bảo tồn sống động qua mô hình du lịch cộng đồng "Sắc màu làng quê", nơi tiếng Đờn ca tài tử ngọt ngào vang lên giữa những khu vườn xanh mát, hòa cùng nhịp sống nhà nông bình dị với cảnh chèo xuồng trên rạch, các trò chơi dân gian và văn hóa ẩm thực độc đáo chế biến từ cây khoai mì – thứ đặc sản dân dã mang đậm dấu ấn ký ức và hồn quê của vùng đất Củ Chi.`,
     },
     {
       id: "future" as const,
       title: "Nông Nghiệp 4.0 & Sinh Thái",
       icon: Sprout,
       summary: "Chuyển mình mạnh mẽ thành đô thị sinh thái xanh",
-      content: `Không dừng lại ở truyền thống lịch sử, An Nhơn Tây hôm nay là trung tâm phát triển nông nghiệp công nghệ cao lớn nhất TP.HCM. Khu NNCNC tại Phạm Văn Cội là nơi nhân giống hàng triệu cành hoa lan Mokara, dưa lưới hữu cơ và rau sạch thủy canh. Song song đó, các mô hình du lịch sinh thái miệt vườn ven sông Sài Gòn như xã Trung An đang đưa An Nhơn Tây trở thành 'lá phổi xanh' hấp dẫn du khách gần xa.`,
+      content: `Nông nghiệp và sinh thái tại xã An Nhơn Tây (Huyện Củ Chi cũ) nổi bật với bước chuyển mình mạnh mẽ từ sản xuất truyền thống sang mô hình nông nghiệp đô thị công nghệ cao kết hợp du lịch sinh thái, tận dụng hiệu quả lợi thế quỹ đất rộng và nguồn nước dồi dào từ hệ thống kênh Đông. Địa phương phát triển đa dạng các mô hình trồng rau an toàn theo chuẩn VietGAP, trồng nấm linh chi, hoa lan, cây kiểng cùng chăn nuôi bò sữa theo quy trình khép kín, bền vững. Song hành với sản xuất sạch, An Nhơn Tây còn đóng vai trò như "lá phổi xanh" vùng Tây Bắc TP.HCM với những cánh đồng lúa, vườn cây ăn trái và hệ thống rạch tự nhiên (như rạch Bù Cạp) thanh bình, tạo nền tảng cho các mô hình du lịch cộng đồng "Sắc màu làng quê" cùng nhiều nông trại giáo dục trải nghiệm tiêu biểu như Nông Trang Xanh (Green Noen) hay Nông trại Hoa Lúa, mang đến không gian gắn kết hài hòa giữa con người và thiên nhiên.`,
     },
   ];
 
@@ -100,12 +200,7 @@ export const OverviewSection: React.FC = () => {
             <span className="text-xs uppercase tracking-widest font-bold text-[#D9A85B]">
               Hồ sơ chuyên đề
             </span>
-            <span aria-hidden="true" className="text-[#687267]">
-              ·
-            </span>
-            <span className="text-xs text-[#687267] font-medium">
-              Kiểm chứng từ tài liệu địa chất & lịch sử Đảng bộ An Nhơn Tây
-            </span>
+
           </div>
 
           <h3 className="font-serif-display text-2xl sm:text-3xl font-bold text-[#29372D] mb-4">
@@ -113,21 +208,13 @@ export const OverviewSection: React.FC = () => {
           </h3>
 
           <div className="prose max-w-none text-[#29372D] text-base leading-relaxed">
-            <p className="first-letter:text-4xl first-letter:font-serif first-letter:font-bold first-letter:float-left first-letter:mr-2.5 first-letter:text-[#356B4B]">
-              {currentTopic.content}
-            </p>
-          </div>
-
-          <div className="mt-6 pt-4 border-t border-[#356B4B]/10 flex flex-wrap items-center justify-between gap-4 text-xs text-[#687267]">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-[#D9A85B]" />
-              <span>
-                Chủ đề được tích hợp vào cơ sở tri thức Trợ lý AI An Nhơn Tây
-              </span>
-            </div>
-            <span className="italic">
-              Nguồn: Viện Khoa học Xã hội Vùng Nam Bộ & UBND Huyện An Nhơn Tây
-            </span>
+            {typeof currentTopic.content === "string" ? (
+              <p className="first-letter:text-4xl first-letter:font-serif first-letter:font-bold first-letter:float-left first-letter:mr-2.5 first-letter:text-[#356B4B]">
+                {currentTopic.content}
+              </p>
+            ) : (
+              currentTopic.content
+            )}
           </div>
         </div>
       </div>

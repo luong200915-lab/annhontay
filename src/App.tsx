@@ -222,9 +222,6 @@ export default function App() {
                   BẢN ĐỒ XÃ AN NHƠN TÂY
                 </h2>
               </div>
-              <p className="text-xs md:text-sm text-[#352C24]/75 max-w-md font-body">
-                Tích hợp bản đồ 34 đơn vị hành chính cấp tỉnh Việt Nam sau sáp nhập 2025 (Nghị quyết 202/2025/QH15 & sapnhap.bando.com.vn) cùng toàn bộ tọa độ di tích kháng chiến, làng nghề và địa điểm du lịch An Nhơn Tây.
-              </p>
             </div>
           </ScrollReveal>
           

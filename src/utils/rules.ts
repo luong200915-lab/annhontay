@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Pure helper and business logic functions for An Nhơn Tây project
  * Decoupled from UI components for unit testing.
  */
@@ -137,7 +137,7 @@ export function isCuchiRelated(question: string): boolean {
 export function validateCoordinates(lat: number, lng: number): boolean {
   if (typeof lat !== 'number' || typeof lng !== 'number') return false;
   if (isNaN(lat) || isNaN(lng)) return false;
-  return lat >= 10.5 && lat <= 11.5 && lng >= 106.2 && lng <= 107.0;
+  return lat >= -90 && lat <= 90 && lng >= -180 && lng <= 180;
 }
 
 /**

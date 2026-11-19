@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { CLASS_12A5_MEMBERS } from "../data/cuchiData";
 import {
   Award,
@@ -33,7 +33,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
         <div className="text-center max-w-2xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#243D2B] text-[#FAF6ED] text-xs font-mono uppercase tracking-widest mb-3">
             <GraduationCap className="w-4 h-4 text-[#C76B45]" />
-            Dự Án Nghiên Cứu Học Tập Địa Phương
+            DỰ ÁN NGHIÊN CỨU HỌC TẬP VỀ XÃ AN NHƠN TÂY
           </div>
           <h2 className="font-['Be_Vietnam_Pro',sans-serif] font-bold text-3xl md:text-4xl text-[#243D2B] tracking-wide mb-3">
             TẬP THỂ HỌC SINH LỚP 12A5
@@ -41,11 +41,6 @@ export const TeamSection: React.FC<TeamSectionProps> = ({
           <div className="font-['Playfair_Display',serif] text-lg italic text-[#C76B45] mb-4">
             "Đưa hào khí Đất Thép Thành Đồng đến gần hơn với thế hệ trẻ"
           </div>
-          <p className="text-sm text-[#352C24]/85 leading-relaxed font-body">
-            Website là công trình học tập liên môn Lịch Sử — Địa Lý — Giáo Dục
-            Địa Phương và Công Nghệ Tin Học của nhóm học sinh lớp 12A5, hướng
-            đến buổi báo cáo chuyên đề và đánh giá học tập.
-          </p>
           <button
             className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-[#243D2B] font-bold text-xl rounded-full hover:bg-[#243D2B]/10 transition-colors"
             onClick={() => onToggleOpen()}

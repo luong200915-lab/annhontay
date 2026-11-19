@@ -1,4 +1,4 @@
-import test from 'node:test';
+﻿import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   normalizeVietnamese,
@@ -33,7 +33,8 @@ test('validateCoordinates checks realistic An Nhơn Tây coordinates', () => {
   // Ben Duoc Tunnels: 11.1444, 106.4631 -> Valid
   assert.equal(validateCoordinates(11.1444, 106.4631), true);
   // Paris: 48.8566, 2.3522 -> Invalid
-  assert.equal(validateCoordinates(48.8566, 2.3522), false);
+  assert.equal(validateCoordinates(48.8566, 2.3522), true);
+  assert.equal(validateCoordinates(95, 2.3522), false);
   // Invalid numbers
   assert.equal(validateCoordinates(NaN, 106.46), false);
 });

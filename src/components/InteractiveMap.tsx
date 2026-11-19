@@ -136,6 +136,8 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
         zoom: initialZoom,
         zoomControl: true,
         scrollWheelZoom: true,
+        worldCopyJump: true,
+        minZoom: 1,
       });
 
       const config = TILE_CONFIGS[mapProvider];
@@ -393,7 +395,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
             </h4>
 
             <div style="font-size: 11px; margin-bottom: 6px; line-height: 1.4; color: #352C24; background: #F2E8D5; padding: 6px 8px; border-radius: 4px;">
-              <strong>Căn cứ sắp xếp:</strong> ${unit.mergerSummary}
+              <strong>Phương án sáp nhập:</strong> ${unit.mergerSummary}
             </div>
 
             <div style="font-size: 11px; line-height: 1.5; margin-bottom: 8px;">
@@ -640,9 +642,6 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
           {/* Quick Legal & Portal Badge */}
           <div className="flex items-center gap-2 text-xs font-mono text-[#FAF6ED]/80">
-            <span className="hidden md:inline bg-[#1C3022] px-2 py-1 rounded border border-[#617A50]/50 text-[11px]">
-              Căn cứ: NQ 202/2025/QH15 & sapnhap.bando.com.vn
-            </span>
             <button
               onClick={() => setIsMapOpen(!isMapOpen)}
               className="lg:hidden flex items-center gap-1 bg-[#617A50] hover:bg-[#617A50]/80 text-[#FAF6ED] text-xs font-mono px-2.5 py-1 rounded transition-colors"

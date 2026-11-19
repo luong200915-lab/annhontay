@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Article, LocationPoint, MediaItem, ContentCategory, ContentStatus } from '../types';
 import { validateCoordinates } from '../utils/rules';
 import {
@@ -155,7 +155,7 @@ export const AdminCMS: React.FC<AdminCMSProps> = ({
     }
 
     if (!validateCoordinates(Number(editingLocation.lat), Number(editingLocation.lng))) {
-      showNotification('Tọa độ không nằm trong vùng An Nhơn Tây / TP.HCM hợp lệ!', 'error');
+      showNotification('Vui lòng nhập vĩ độ (-90 đến 90) và kinh độ (-180 đến 180) hợp lệ!', 'error');
       return;
     }
 
@@ -743,7 +743,7 @@ export const AdminCMS: React.FC<AdminCMSProps> = ({
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-mono uppercase font-bold text-[#352C24] mb-1">
-                        Vĩ độ (Latitude) * (Khoảng 10.9 - 11.2)
+                        Vĩ độ (Latitude) * (-90 đến 90)
                       </label>
                       <input
                         type="number"
@@ -761,7 +761,7 @@ export const AdminCMS: React.FC<AdminCMSProps> = ({
 
                     <div>
                       <label className="block text-xs font-mono uppercase font-bold text-[#352C24] mb-1">
-                        Kinh độ (Longitude) * (Khoảng 106.4 - 106.7)
+                        Kinh độ (Longitude) * (-180 đến 180)
                       </label>
                       <input
                         type="number"
