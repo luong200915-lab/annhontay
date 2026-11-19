@@ -11,7 +11,24 @@ export function getStoredArticles(): Article[] {
     const raw = localStorage.getItem(ARTICLES_KEY);
     if (!raw) return INITIAL_ARTICLES;
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) && parsed.length > 0 ? parsed : INITIAL_ARTICLES;
+    if (!Array.isArray(parsed) || parsed.length === 0) return INITIAL_ARTICLES;
+    const articleMap = new Map<string, Article>();
+    INITIAL_ARTICLES.forEach((a) => articleMap.set(a.id, a));
+    parsed.forEach((a: Article) => {
+      if (a.id === 'art-3' && a.content && a.content[0] && a.content[0].includes('Đền Tưởng niệm Liệt sĩ')) {
+        articleMap.set(a.id, INITIAL_ARTICLES.find(x => x.id === 'art-3') || a);
+      } else if (a.id === 'art-8' && a.slug === 'lang-nghe-dan-lat-may-tre-thai-my') {
+        articleMap.set(a.id, INITIAL_ARTICLES.find(x => x.id === 'art-8') || a);
+      } else {
+        articleMap.set(a.id, a);
+      }
+    });
+    INITIAL_ARTICLES.forEach((a) => {
+      if (!articleMap.has(a.id)) {
+        articleMap.set(a.id, a);
+      }
+    });
+    return Array.from(articleMap.values());
   } catch {
     return INITIAL_ARTICLES;
   }
@@ -30,7 +47,22 @@ export function getStoredLocations(): LocationPoint[] {
     const raw = localStorage.getItem(LOCATIONS_KEY);
     if (!raw) return INITIAL_LOCATIONS;
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) && parsed.length > 0 ? parsed : INITIAL_LOCATIONS;
+    if (!Array.isArray(parsed) || parsed.length === 0) return INITIAL_LOCATIONS;
+    const locMap = new Map<string, LocationPoint>();
+    INITIAL_LOCATIONS.forEach((l) => locMap.set(l.id, l));
+    parsed.forEach((l: LocationPoint) => {
+      if (l.id === 'loc-5' && l.name && l.name.includes('Thái Mỹ')) {
+        locMap.set(l.id, INITIAL_LOCATIONS.find(x => x.id === 'loc-5') || l);
+      } else {
+        locMap.set(l.id, l);
+      }
+    });
+    INITIAL_LOCATIONS.forEach((l) => {
+      if (!locMap.has(l.id)) {
+        locMap.set(l.id, l);
+      }
+    });
+    return Array.from(locMap.values());
   } catch {
     return INITIAL_LOCATIONS;
   }
