@@ -21,26 +21,32 @@ app.get('/api/ai-status', (_req, res) => {
 });
 
 // Sync Admin CMS / LocalStorage data directly into source code (src/data/cuchiData.ts)
+// writeToSourceCode=true: also rewrites cuchiData.ts (only on explicit Admin CMS button press)
+// writeToSourceCode=false (default): only snapshots to admin_exported_data.json (safe, no HMR reload)
 app.post('/api/sync-data-to-source', (req, res) => {
   try {
-    const { articles, locations, media } = req.body;
+    const { articles, locations, media, writeToSourceCode } = req.body;
     if (!articles && !locations && !media) {
       return res.status(400).json({
         error: 'INVALID_PAYLOAD',
-        message: 'Không có dữ liệu bài viết, địa điểm hoặc media để đồng bộ.'
+        message: 'Khong co du lieu bai viet, dia diem hoac media de dong bo.'
       });
     }
 
-    const result = syncDataToSource({ articles, locations, media });
-    console.log(
-      `[Sync] Đã đồng bộ thành công vào source code lúc ${result.syncedAt}: ${result.articlesCount} bài viết, ${result.locationsCount} địa điểm, ${result.mediaCount} media.`
-    );
+    const result = syncDataToSource({ articles, locations, media, writeToSourceCode: !!writeToSourceCode });
+    if (writeToSourceCode) {
+      console.log(
+        `[Sync] Da ghi vao source code luc ${result.syncedAt}: ${result.articlesCount} bai viet, ${result.locationsCount} dia diem, ${result.mediaCount} media.`
+      );
+    } else {
+      console.log(`[Sync] Da luu snapshot JSON luc ${result.syncedAt}: ${result.articlesCount} bai viet.`);
+    }
     return res.json(result);
   } catch (err: any) {
-    console.error('Lỗi khi đồng bộ dữ liệu vào source code:', err?.message || err);
+    console.error('Loi khi dong bo du lieu vao source code:', err?.message || err);
     return res.status(500).json({
       error: 'SYNC_ERROR',
-      message: err?.message || 'Đã xảy ra lỗi khi ghi dữ liệu vào file source code.'
+      message: err?.message || 'Da xay ra loi khi ghi du lieu vao file source code.'
     });
   }
 });

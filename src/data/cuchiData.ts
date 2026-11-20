@@ -345,7 +345,7 @@ export const INITIAL_ARTICLES: Article[] = [
   {
     "id": "art-6",
     "slug": "nong-trang-xanh-green-noen-va-du-lich-sinh-thai",
-    "title": "NÔNG TRANG XANH GREEN NOEN — MẢNH XANH NÔNG NGHIỆP AN NHƠN TÂY",
+    "title": "avjsd",
     "subtitle": "Điểm hẹn sinh thái ngập tràn sắc hoa, nấm ăn công nghệ cao và trang trại dê cừu thân thiện",
     "category": "nature",
     "categoryName": "Thiên nhiên & Cảnh quan",
@@ -361,7 +361,6 @@ export const INITIAL_ARTICLES: Article[] = [
     "imageCaption": "Thảo nguyên xanh mướt và đàn cừu thân thiện tại Green Noen An Nhơn Tây",
     "imageCredit": "Trung tâm Du lịch Sinh thái An Nhơn Tây",
     "author": "Nguyễn Tường Lam (Lớp 12A5)",
-    "locationId": "loc-6",
     "sources": [
       {
         "id": "src-1",
@@ -396,8 +395,7 @@ export const INITIAL_ARTICLES: Article[] = [
       "Trải nghiệm sinh thái"
     ],
     "status": "verified",
-    "updatedAt": "2026-10-15",
-    "featured": false,
+    "updatedAt": "2026-11-20",
     "highlights": [
       "Diện tích: hơn 20 hecta nông nghiệp công nghệ cao",
       "Đặc điểm: Trồng nấm sạch, vườn dưa lưới và nông trại gia súc thân thiện",

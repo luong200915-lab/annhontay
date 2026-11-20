@@ -72,7 +72,8 @@ export const AdminCMS: React.FC<AdminCMSProps> = ({
       const res = await fetch('/api/sync-data-to-source', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ articles, locations, media })
+        // writeToSourceCode: true → cho phép ghi thẳng vào cuchiData.ts (chỉ khi người dùng bấm nút)
+        body: JSON.stringify({ articles, locations, media, writeToSourceCode: true })
       });
       const data = await res.json();
       if (data?.success) {
