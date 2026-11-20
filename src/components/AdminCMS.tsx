@@ -17,7 +17,9 @@ import {
   X,
   ExternalLink,
   ShieldCheck,
-  Eye
+  Eye,
+  Download,
+  RefreshCw
 } from 'lucide-react';
 
 interface AdminCMSProps {
@@ -56,11 +58,56 @@ export const AdminCMS: React.FC<AdminCMSProps> = ({
   // Media Edit State
   const [editingMedia, setEditingMedia] = useState<Partial<MediaItem> | null>(null);
 
+  const [isSyncing, setIsSyncing] = useState(false);
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
   const showNotification = (message: string, type: 'success' | 'error' = 'success') => {
     setNotification({ message, type });
-    setTimeout(() => setNotification(null), 3000);
+    setTimeout(() => setNotification(null), 4000);
+  };
+
+  const handleSyncToSourceCode = async () => {
+    setIsSyncing(true);
+    try {
+      const res = await fetch('/api/sync-data-to-source', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ articles, locations, media })
+      });
+      const data = await res.json();
+      if (data?.success) {
+        showNotification(
+          `✓ Đã đồng bộ cố định vào source code (src/data/cuchiData.ts): ${data.articlesCount} bài viết, ${data.locationsCount} địa điểm, ${data.mediaCount} media!`
+        );
+      } else {
+        showNotification(data?.message || 'Có lỗi xảy ra khi đồng bộ.', 'error');
+      }
+    } catch (err: any) {
+      showNotification('Lỗi kết nối khi đồng bộ: ' + (err?.message || err), 'error');
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
+  const handleExportJson = () => {
+    try {
+      const data = {
+        exportedAt: new Date().toISOString(),
+        articles,
+        locations,
+        media
+      };
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `dulieu_admin_annhontay_${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showNotification('✓ Đã tải file JSON dữ liệu Admin về máy!');
+    } catch (err: any) {
+      showNotification('Lỗi khi xuất JSON: ' + (err?.message || err), 'error');
+    }
   };
 
   const handleLogin = (e: React.FormEvent) => {
@@ -337,13 +384,36 @@ export const AdminCMS: React.FC<AdminCMSProps> = ({
 
           <div className="flex items-center gap-2">
             <button
+              onClick={handleSyncToSourceCode}
+              disabled={isSyncing}
+              className="px-3 py-1 text-xs font-mono bg-[#C76B45] hover:bg-[#C76B45]/90 disabled:opacity-50 rounded text-[#FAF6ED] flex items-center gap-1.5 font-bold shadow-sm transition-all"
+              title="Ghi trực tiếp toàn bộ dữ liệu Admin hiện tại vào file src/data/cuchiData.ts trên máy"
+            >
+              {isSyncing ? (
+                <>
+                  <RefreshCw className="w-3.5 h-3.5 animate-spin" /> Đang đồng bộ...
+                </>
+              ) : (
+                <>
+                  <Save className="w-3.5 h-3.5" /> Đồng bộ vào Source Code
+                </>
+              )}
+            </button>
+            <button
+              onClick={handleExportJson}
+              className="px-2.5 py-1 text-xs font-mono bg-[#617A50] hover:bg-[#617A50]/80 rounded text-[#FAF6ED] flex items-center gap-1"
+              title="Xuất dữ liệu Admin thành file JSON để lưu trữ dự phòng"
+            >
+              <Download className="w-3.5 h-3.5" /> Xuất JSON
+            </button>
+            <button
               onClick={() => {
                 if (confirm('Khôi phục toàn bộ dữ liệu gốc của nhóm 12A5?')) {
                   onResetData();
                   showNotification('Đã khôi phục dữ liệu gốc chuẩn mực!');
                 }
               }}
-              className="px-2.5 py-1 text-xs font-mono bg-[#617A50] hover:bg-[#617A50]/80 rounded text-[#FAF6ED] flex items-center gap-1"
+              className="px-2.5 py-1 text-xs font-mono bg-stone-600 hover:bg-stone-500 rounded text-[#FAF6ED] flex items-center gap-1"
               title="Khôi phục toàn bộ bài viết và bản đồ về mặc định"
             >
               <RotateCcw className="w-3.5 h-3.5" /> Khôi phục gốc
@@ -471,6 +541,44 @@ export const AdminCMS: React.FC<AdminCMSProps> = ({
                   >
                     <Plus className="w-4 h-4" /> Thêm ảnh tư liệu
                   </button>
+                </div>
+
+                {/* Direct Source Code Synchronization Action */}
+                <div className="mt-5 pt-4 border-t border-[#352C24]/15 bg-[#FAF6ED] p-4 rounded-md border">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                    <div>
+                      <h5 className="font-heading text-lg text-[#243D2B] flex items-center gap-1.5">
+                        <Save className="w-4 h-4 text-[#C76B45]" />
+                        Đồng Bộ Trực Tiếp Vào Source Code (src/data/cuchiData.ts)
+                      </h5>
+                      <p className="text-xs text-[#352C24]/75 mt-0.5">
+                        Lưu cố định toàn bộ {articles.length} bài viết, {locations.length} địa điểm, {media.length} ảnh từ Admin vào file mã nguồn trên ổ đĩa. Dữ liệu sẽ tồn tại vĩnh viễn, không lo mất khi xóa bộ nhớ đệm hay đổi trình duyệt.
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <button
+                        onClick={handleSyncToSourceCode}
+                        disabled={isSyncing}
+                        className="px-4 py-2 bg-[#C76B45] hover:bg-[#C76B45]/90 disabled:opacity-50 text-[#FAF6ED] font-mono text-xs font-bold rounded shadow flex items-center gap-1.5"
+                      >
+                        {isSyncing ? (
+                          <>
+                            <RefreshCw className="w-4 h-4 animate-spin" /> Đang ghi vào code...
+                          </>
+                        ) : (
+                          <>
+                            <Save className="w-4 h-4" /> Đồng bộ ngay
+                          </>
+                        )}
+                      </button>
+                      <button
+                        onClick={handleExportJson}
+                        className="px-3 py-2 bg-[#243D2B] hover:bg-[#617A50] text-[#FAF6ED] font-mono text-xs rounded flex items-center gap-1.5"
+                      >
+                        <Download className="w-4 h-4" /> Tải file JSON
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

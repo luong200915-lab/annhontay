@@ -77,25 +77,63 @@ export default function App() {
     new URLSearchParams(window.location.search).get("autostart") === "1";
 
   useEffect(() => {
-    setArticles(getStoredArticles());
-    setLocations(getStoredLocations());
-    setMedia(getStoredMedia());
-    setEvaluations(getStoredEvaluations());
+    const loadedArticles = getStoredArticles();
+    const loadedLocations = getStoredLocations();
+    const loadedMedia = getStoredMedia();
+    const loadedEvaluations = getStoredEvaluations();
+
+    setArticles(loadedArticles);
+    setLocations(loadedLocations);
+    setMedia(loadedMedia);
+    setEvaluations(loadedEvaluations);
+
+    // Tự động đồng bộ nội dung từ Admin / LocalStorage vào thẳng file source code
+    fetch('/api/sync-data-to-source', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        articles: loadedArticles,
+        locations: loadedLocations,
+        media: loadedMedia,
+      })
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.success) {
+          console.log('[Sync] Tự động đồng bộ dữ liệu vào source code thành công:', data);
+        }
+      })
+      .catch((err) => console.warn('[Sync] Auto-sync to source code notice:', err));
   }, []);
 
   const handleSaveArticles = (newArticles: Article[]) => {
     setArticles(newArticles);
     saveStoredArticles(newArticles);
+    fetch('/api/sync-data-to-source', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ articles: newArticles })
+    }).catch(console.error);
   };
 
   const handleSaveLocations = (newLocations: LocationPoint[]) => {
     setLocations(newLocations);
     saveStoredLocations(newLocations);
+    fetch('/api/sync-data-to-source', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ locations: newLocations })
+    }).catch(console.error);
   };
 
   const handleSaveMedia = (newMedia: MediaItem[]) => {
     setMedia(newMedia);
     saveStoredMedia(newMedia);
+    fetch('/api/sync-data-to-source', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ media: newMedia })
+    }).catch(console.error);
   };
 
   const handleAddEvaluation = (newEval: ProjectEvaluation) => {

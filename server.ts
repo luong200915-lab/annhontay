@@ -2,13 +2,14 @@ import express from 'express';
 import { createServer as createViteServer } from 'vite';
 import dotenv from 'dotenv';
 import { aiService } from './server/aiService';
+import { syncDataToSource } from './server/syncDataService';
 
 dotenv.config();
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 
-app.use(express.json({ limit: '1mb' }));
+app.use(express.json({ limit: '50mb' }));
 
 // Health check & status endpoint for AI
 app.get('/api/ai-status', (_req, res) => {
@@ -17,6 +18,31 @@ app.get('/api/ai-status', (_req, res) => {
     provider: 'Google Gemini AI (Real LLM)',
     model: 'gemini-3.5-flash'
   });
+});
+
+// Sync Admin CMS / LocalStorage data directly into source code (src/data/cuchiData.ts)
+app.post('/api/sync-data-to-source', (req, res) => {
+  try {
+    const { articles, locations, media } = req.body;
+    if (!articles && !locations && !media) {
+      return res.status(400).json({
+        error: 'INVALID_PAYLOAD',
+        message: 'Không có dữ liệu bài viết, địa điểm hoặc media để đồng bộ.'
+      });
+    }
+
+    const result = syncDataToSource({ articles, locations, media });
+    console.log(
+      `[Sync] Đã đồng bộ thành công vào source code lúc ${result.syncedAt}: ${result.articlesCount} bài viết, ${result.locationsCount} địa điểm, ${result.mediaCount} media.`
+    );
+    return res.json(result);
+  } catch (err: any) {
+    console.error('Lỗi khi đồng bộ dữ liệu vào source code:', err?.message || err);
+    return res.status(500).json({
+      error: 'SYNC_ERROR',
+      message: err?.message || 'Đã xảy ra lỗi khi ghi dữ liệu vào file source code.'
+    });
+  }
 });
 
 // AI Assistant endpoint
